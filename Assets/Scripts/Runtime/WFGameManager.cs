@@ -25,6 +25,7 @@ namespace WrongFloor
 
         public static bool IsPaused = false;
         public static bool LockMovement = false;
+        public static Player.MovementController Player;
 
         private void Awake()
         {
@@ -34,6 +35,7 @@ namespace WrongFloor
         private void Start()
         {
             HideCursor();
+            Player = GameObject.FindObjectsByType<Player.MovementController>()[0].GetComponent<Player.MovementController>();
         }
 
         private void OnEnable()
