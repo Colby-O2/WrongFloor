@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace WrongFloor
@@ -6,5 +7,6 @@ namespace WrongFloor
     public class Preferences : ScriptableObject
     {
         public Texture2D Cursor;
+        public float DialogueSpeedMul = 1f;
     }
 }

@@ -3,6 +3,7 @@ using PlazmaGames.Audio;
 using PlazmaGames.Core;
 using PlazmaGames.UI;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using WrongFloor.MonoSystems;
 
@@ -17,6 +18,7 @@ namespace WrongFloor
         [SerializeField] private AnimationMonoSystem _animSystem;
         [SerializeField] private AudioMonoSystem _audioSystem;
         [SerializeField] private InputMonoSystem _inputSystem;
+        [SerializeField] private DialogueMonoSystem _dialogueSystem;
 
         public static Preferences Preferences { get => (Instance as WFGameManager)._preferences; }
         [SerializeField] private Preferences _preferences;
@@ -82,6 +84,7 @@ namespace WrongFloor
             AddMonoSystem<AnimationMonoSystem, IAnimationMonoSystem>(_animSystem);
             AddMonoSystem<AudioMonoSystem, IAudioMonoSystem>(_audioSystem);
             AddMonoSystem<InputMonoSystem, IInputMonoSystem>(_inputSystem);
+            AddMonoSystem<DialogueMonoSystem, IDialogueMonoSystem>(_dialogueSystem);
         }
 
         public override string GetApplicationName()

@@ -310,6 +310,7 @@ MonoBehaviour:
   _animSystem: {fileID: 6427913010646146628}
   _audioSystem: {fileID: 6638988140779161889}
   _inputSystem: {fileID: 2450665240825514476}
+  _dialogueSystem: {fileID: 276861924299996007}
   _preferences: {fileID: 11400000, guid: 965e2af8387e166489c04caa6a03cb70, type: 2}
 --- !u!1 &4991616255221471923
 GameObject:
@@ -484,6 +485,70 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &6086389697012485150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4053292854711474275}
+  - component: {fileID: 276861924299996007}
+  m_Layer: 0
+  m_Name: Dialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4053292854711474275
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6086389697012485150}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3635608850560636455}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &276861924299996007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6086389697012485150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b10721752f1914e825eec1e2a97ebb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WrongFloor.MonoSystems.DialogueMonoSystem
+  _db: {fileID: 11400000, guid: a32aa1e2c5f09324e8e3cb0c369db427, type: 2}
+  _currentDialogue: {fileID: 0}
+  _currentDialogueNode:
+    Guid: 
+    ActorName: 
+    GroupName: 
+    Type: 0
+    Text: 
+    EventID: 
+    position: {x: 0, y: 0}
+    PropertyType: 
+    PropertyBooleanValue: 0
+    PropertyIntValue: 0
+    PropertyName: 
+    IncrementAmount: 0
+    ComparisonType: 0
+    ComparsionCondition: 0
+    Choices: []
+  _currentNodeType: 0
+  _isDialogueInProgress: 0
 --- !u!1 &6642865311224696030
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,7 +594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: PlazmaGames.Runtime::PlazmaGames.UI.UIMonoSystem
   _preserveUIAcrossScenes: 1
-  _startingView: 
+  _startingView: WrongFloor.UI.GameView, Assembly-CSharp
   _views: []
   _currentView: {fileID: 0}
   _hasInitialized: 0
@@ -626,6 +691,7 @@ Transform:
   - {fileID: 5247065195227783041}
   - {fileID: 7196591500207706390}
   - {fileID: 1088523967329569104}
+  - {fileID: 4053292854711474275}
   m_Father: {fileID: 208488641485216967}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8384551377581196361

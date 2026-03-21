@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dde6bf8a896c98c48b27db112dac91a0, type: 3}
+  m_Name: Test
+  m_EditorClassIdentifier: DialogueGraph::DialogueGraph.Data.DialogueGraphSO
+  id: -1
+  includeInDatabase: 1
+  Name: Test
+  Nodes:
+  - Guid: a7a33f87-f21c-4ac1-8b62-d4851003ca07
+    ActorName: 
+    GroupName: 
+    Type: 0
+    Text: 
+    EventID: 
+    position: {x: 0, y: 0}
+    PropertyType: 
+    PropertyBooleanValue: 0
+    PropertyIntValue: 0
+    PropertyName: 
+    IncrementAmount: 0
+    ComparisonType: 0
+    ComparsionCondition: 0
+    Choices:
+    - Text: 
+      Next: f18640b5-6981-4772-8ad9-783309e4591a
+  - Guid: f18640b5-6981-4772-8ad9-783309e4591a
+    ActorName: Speaker
+    GroupName: 
+    Type: 1
+    Text: 'Go to the end of the hallway. '
+    EventID: 
+    position: {x: 330, y: -4}
+    PropertyType: 
+    PropertyBooleanValue: 0
+    PropertyIntValue: 0
+    PropertyName: 
+    IncrementAmount: 0
+    ComparisonType: 0
+    ComparsionCondition: 0
+    Choices:
+    - Text: 
+      Next: ab5afda6-7abd-4fb6-bfca-50277b19ff87
+  - Guid: ab5afda6-7abd-4fb6-bfca-50277b19ff87
+    ActorName: Speaker
+    GroupName: 
+    Type: 1
+    Text: Now
+    EventID: 
+    position: {x: 732, y: -4}
+    PropertyType: 
+    PropertyBooleanValue: 0
+    PropertyIntValue: 0
+    PropertyName: 
+    IncrementAmount: 0
+    ComparisonType: 0
+    ComparsionCondition: 0
+    Choices:
+    - Text: 
+      Next: 
+  Groups: []
+  Properties: []
