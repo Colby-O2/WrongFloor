@@ -1,8 +1,6 @@
 using PlazmaGames.Attribute;
 using PlazmaGames.Audio;
 using PlazmaGames.Core;
-using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
