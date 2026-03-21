@@ -42,6 +42,7 @@ namespace WrongFloor.Player
 
         private void Update()
         {
+            if (WFGameManager.LockMovement || WFGameManager.IsPaused) return;
             _movement = Vector2.ClampMagnitude(_input.RawMovement, 1f);
             ApplyGravity();
             UpdateMovement();

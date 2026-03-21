@@ -23,7 +23,7 @@ namespace WrongFloor.UI
     }
 #endif
 
-    public class EventButton : Button, IPointerDownHandler, IPointerUpHandler
+    public class EventButton : UnityEngine.UI.Button, IPointerDownHandler, IPointerUpHandler
     {
         public UnityEvent onPointerUp = new UnityEvent();
         public UnityEvent onPointerDown = new UnityEvent();

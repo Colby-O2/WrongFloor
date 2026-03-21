@@ -29,6 +29,7 @@ namespace WrongFloor.Player
 
         private void Update()
         {
+            if (WFGameManager.LockMovement || WFGameManager.IsPaused) return;
             UpdateRotation();
         }
 

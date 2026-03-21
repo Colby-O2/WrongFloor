@@ -8,5 +8,6 @@ namespace WrongFloor
     {
         public Texture2D Cursor;
         public float DialogueSpeedMul = 1f;
+        public float InteractionDistance = 1.0f;
     }
 }

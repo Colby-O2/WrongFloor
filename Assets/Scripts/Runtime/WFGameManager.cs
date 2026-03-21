@@ -19,12 +19,14 @@ namespace WrongFloor
         [SerializeField] private AudioMonoSystem _audioSystem;
         [SerializeField] private InputMonoSystem _inputSystem;
         [SerializeField] private DialogueMonoSystem _dialogueSystem;
+        [SerializeField] private GameLogicMonoSystem _gameLogicSystem;
 
         public static Preferences Preferences { get => (Instance as WFGameManager)._preferences; }
         [SerializeField] private Preferences _preferences;
 
         public static bool IsPaused = false;
         public static bool LockMovement = false;
+        public static Player.MovementController Player;
 
         private void Awake()
         {
@@ -34,6 +36,7 @@ namespace WrongFloor
         private void Start()
         {
             HideCursor();
+            Player = GameObject.FindObjectsByType<Player.MovementController>()[0].GetComponent<Player.MovementController>();
         }
 
         private void OnEnable()
@@ -85,6 +88,7 @@ namespace WrongFloor
             AddMonoSystem<AudioMonoSystem, IAudioMonoSystem>(_audioSystem);
             AddMonoSystem<InputMonoSystem, IInputMonoSystem>(_inputSystem);
             AddMonoSystem<DialogueMonoSystem, IDialogueMonoSystem>(_dialogueSystem);
+            AddMonoSystem<GameLogicMonoSystem, IGameLogicMonoSystem>(_gameLogicSystem);
         }
 
         public override string GetApplicationName()
