@@ -19,6 +19,7 @@ namespace WrongFloor
         [SerializeField] private AudioMonoSystem _audioSystem;
         [SerializeField] private InputMonoSystem _inputSystem;
         [SerializeField] private DialogueMonoSystem _dialogueSystem;
+        [SerializeField] private GameLogicMonoSystem _gameLogicSystem;
 
         public static Preferences Preferences { get => (Instance as WFGameManager)._preferences; }
         [SerializeField] private Preferences _preferences;
@@ -87,6 +88,7 @@ namespace WrongFloor
             AddMonoSystem<AudioMonoSystem, IAudioMonoSystem>(_audioSystem);
             AddMonoSystem<InputMonoSystem, IInputMonoSystem>(_inputSystem);
             AddMonoSystem<DialogueMonoSystem, IDialogueMonoSystem>(_dialogueSystem);
+            AddMonoSystem<GameLogicMonoSystem, IGameLogicMonoSystem>(_gameLogicSystem);
         }
 
         public override string GetApplicationName()

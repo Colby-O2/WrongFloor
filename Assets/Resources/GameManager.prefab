@@ -311,6 +311,7 @@ MonoBehaviour:
   _audioSystem: {fileID: 6638988140779161889}
   _inputSystem: {fileID: 2450665240825514476}
   _dialogueSystem: {fileID: 276861924299996007}
+  _gameLogicSystem: {fileID: 2363797168565763234}
   _preferences: {fileID: 11400000, guid: 965e2af8387e166489c04caa6a03cb70, type: 2}
 --- !u!1 &4991616255221471923
 GameObject:
@@ -736,6 +737,7 @@ Transform:
   - {fileID: 7196591500207706390}
   - {fileID: 1088523967329569104}
   - {fileID: 4053292854711474275}
+  - {fileID: 5116931376741555002}
   m_Father: {fileID: 208488641485216967}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8384551377581196361
