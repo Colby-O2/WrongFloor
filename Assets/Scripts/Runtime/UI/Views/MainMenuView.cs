@@ -1,6 +1,7 @@
 using ColbyO.VNTG.PSX;
 using PlazmaGames.Core;
 using PlazmaGames.UI;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using WrongFloor.MonoSystems;
@@ -10,6 +11,7 @@ namespace WrongFloor
 {
     public class MainMenuView : View
     {
+        [SerializeField] private AudioSource _musicSource;
         [SerializeField] private GameObject _mainMenuBackground;
         [SerializeField] private GameObject _mainMenuScene;
 
@@ -18,6 +20,10 @@ namespace WrongFloor
         [SerializeField] private EventButton _play;
         [SerializeField] private EventButton _settings;
         [SerializeField] private EventButton _quit;
+
+        private float _originalMusicVolume = 1.0f;
+
+        private Coroutine _musicFadeRoutine;
 
         public bool HasBeatGame = false;
 
@@ -34,6 +40,11 @@ namespace WrongFloor
             SceneManager.sceneLoaded -= OnSceneLoad;
         }
 
+        private void Awake()
+        {
+            _originalMusicVolume = _musicSource.volume;
+        }
+
         private void OnSceneLoad(Scene scene, LoadSceneMode mode)
         {
             if (HasBeatGame)
@@ -44,14 +55,39 @@ namespace WrongFloor
 
                 PSXEffectSettings psxSettings = _visualMS.GetPSXSettings();
                 psxSettings.EnableFog.value = true;
+
+                if (_musicSource) _musicSource.volume = _originalMusicVolume;
             }
+
+            if (_musicSource && !_musicSource.isPlaying) _musicSource.Play();
+        }
+
+        private IEnumerator FadeOutMusic(AudioSource source, float duration)
+        {
+            float startVolume = source.volume;
+
+            float time = 0f;
+            while (time < duration)
+            {
+                time += Time.deltaTime;
+                source.volume = Mathf.Lerp(startVolume, 0f, time / duration);
+                yield return null;
+            }
+
+            source.volume = 0f;
+            source.Stop();
         }
 
         private void Play()
         {
             WFGameManager.HideCursor();
+
+            if (_musicFadeRoutine != null) StopCoroutine(_musicFadeRoutine);
+            _musicFadeRoutine = StartCoroutine(FadeOutMusic(_musicSource, 2f));
+
             _visualMS.FadeOut(2f).Then(_ =>
             {
+                _musicSource.Stop();
                 _visualMS.FadeIn(5f);
                 _mainMenuBackground.SetActive(false);
                 _mainMenuScene.SetActive(false);
