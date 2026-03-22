@@ -1,12 +1,17 @@
 using PlazmaGames.Core;
+using PlazmaGames.UI;
 using UnityEngine;
 using WrongFloor.MonoSystems;
+using WrongFloor.UI;
 
 namespace WrongFloor
 {
     public class Button : MonoBehaviour
     {
         [SerializeField] private string _name = "Button";
+        [SerializeField] private string _hint = "To Press";
+
+        private bool _in = false;
 
         void Start()
         {
@@ -15,12 +20,22 @@ namespace WrongFloor
 
         void Update()
         {
-            if (IsInRange()) return;
+            bool now = IsInRange();
+            if (_in && !now)
+            {
+                GameManager.GetMonoSystem<IUIMonoSystem>().GetView<GameView>().SetHint("");
+            }
+            else if (!_in && now)
+            {
+                GameManager.GetMonoSystem<IUIMonoSystem>().GetView<GameView>().SetHint("[E] " + _hint);
+            }
+
+            _in = now;
         }
         
         private void Press()
         {
-            if (!IsInRange()) return;
+            if (!_in) return;
             GameManager.GetMonoSystem<IGameLogicMonoSystem>().Trigger(_name);
         }
         

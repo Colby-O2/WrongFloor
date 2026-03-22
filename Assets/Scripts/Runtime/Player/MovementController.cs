@@ -4,6 +4,7 @@ using PlazmaGames.Core;
 using UnityEngine;
 
 using WrongFloor.MonoSystems;
+using WrongFloor.Utilizes;
 
 namespace WrongFloor.Player
 {
@@ -29,14 +30,34 @@ namespace WrongFloor.Player
         [SerializeField, ReadOnly] private Vector2 _movement;
 
         private CharacterController _controller;
+        private ViewController _viewController;
         private IInputMonoSystem _input;
 
-        private float Speed => _settings.Speed;
+        private float Speed => _settings.Speed * (_crouched ? _settings.CrouchedMultiplier : 1.0f);
         private float Gravity => GRAVITY * _settings.GravityMul;
+
+        private bool _crouched = false;
+
+        public void Crouch()
+        {
+            _crouched = true;
+            _viewController.Crouch();
+            _controller.height = 2.0f - WFGameManager.Preferences.CrouchHeight;
+            _controller.center = Vector3.zero.SetY(-WFGameManager.Preferences.CrouchHeight / 2.0f);
+        }
+        
+        public void Uncrouch()
+        {
+            _crouched = false;
+            _viewController.Uncrouch();
+            _controller.height = 2.0f;
+            _controller.center = Vector3.zero;
+        }
 
         private void Awake()
         {
             _controller = GetComponent<CharacterController>();
+            _viewController = GetComponentInChildren<ViewController>();
             _input = GameManager.GetMonoSystem<IInputMonoSystem>();
         }
 
