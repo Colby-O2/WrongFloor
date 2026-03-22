@@ -113,7 +113,7 @@ namespace WrongFloor
 
                         // Loop 1
                         _scheduler.When(() => IsTriggered("Button"))
-                        .Then(_ => _dialogueMs.StartDialoguePromise("Operator"))
+                        .Then(_ => _dialogueMs.StartDialoguePromise("Operator", passive: true))
                         .Then(_ => Refs.Elevator.OpenDoors())
                         .Then(_ =>
                         {
@@ -146,7 +146,7 @@ namespace WrongFloor
                         })
                         // Loop 2
                         .Then(_ => _scheduler.When(() => IsTriggered("Button")))
-                        .Then(_ => _dialogueMs.StartDialoguePromise("Operator"))
+                        .Then(_ => _dialogueMs.StartDialoguePromise("Operator", passive: true))
                         .Then(_ => Refs.Elevator.OpenDoors())
                         .Then(_ =>
                         {
@@ -181,7 +181,7 @@ namespace WrongFloor
                         })
                         // Loop 3
                         .Then(_ => _scheduler.When(() => IsTriggered("Button")))
-                        .Then(_ => _dialogueMs.StartDialoguePromise("Operator"))
+                        .Then(_ => _dialogueMs.StartDialoguePromise("Operator", passive: true))
                         .Then(_ => Refs.Elevator.OpenDoors())
                         .Then(_ =>
                         {
@@ -222,7 +222,7 @@ namespace WrongFloor
                         })
                         // Loop 4
                         .Then(_ => _scheduler.When(() => IsTriggered("Button")))
-                        .Then(_ => _dialogueMs.StartDialoguePromise("Operator"))
+                        .Then(_ => _dialogueMs.StartDialoguePromise("Operator", passive: true))
                         .Then(_ => Refs.Elevator.OpenDoors())
                         .Then(_ =>
                         {
@@ -272,7 +272,7 @@ namespace WrongFloor
                         // Loop 5
                         .Then(_ => _scheduler.When(() => IsTriggered("Button")))
                         .Then(_ => { Refs.ElevatorPanel.Disable(); })
-                        .Then(_ => _dialogueMs.StartDialoguePromise("Operator"))
+                        .Then(_ => _dialogueMs.StartDialoguePromise("Operator", passive: true))
                         .Then(_ =>
                         {
                             Refs.SoundScape.AmbienceVolume(0.5f);
@@ -313,7 +313,7 @@ namespace WrongFloor
                             Refs.SoundScape.StopAmbience();
                             Refs.SoundScape.StopHeart();
                         })
-                        .Then(_ => _dialogueMs.StartDialoguePromise("Operator"))
+                        .Then(_ => _dialogueMs.StartDialoguePromise("Operator", passive: true))
                         .Then(_ => _scheduler.Wait(Random.Range(2f, 7f)))
                         .Then(_ => Refs.Elevator.FallElevator())
                         .Then(_ => _scheduler.Wait(5f))
