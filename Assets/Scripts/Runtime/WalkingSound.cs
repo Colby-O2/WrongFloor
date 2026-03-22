@@ -10,6 +10,8 @@ namespace WrongFloor.Behaviour
 
         [SerializeField] private AudioSource _as;
 
+        public static bool Enabled = true;
+
         private void Awake()
         {
             if (!_vel) _vel = GetComponent<VelocityTracker>();
@@ -17,6 +19,7 @@ namespace WrongFloor.Behaviour
 
         private void Update()
         {
+            if (!Enabled) return;
             if (_as.isPlaying && _vel.SpeedInPlane < 0.01f) _as.Stop();
             else if (!_as.isPlaying && _vel.SpeedInPlane > 0.01f)
             {

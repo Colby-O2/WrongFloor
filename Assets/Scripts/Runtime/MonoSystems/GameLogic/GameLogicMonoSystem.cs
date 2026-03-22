@@ -315,7 +315,6 @@ namespace WrongFloor
                         })
                         .Then(_ => _dialogueMs.StartDialoguePromise("Operator"))
                         .Then(_ => _scheduler.Wait(Random.Range(2f, 7f)))
-                        .Then(_ => Refs.Elevator.OpenDoors(false))
                         .Then(_ => Refs.Elevator.FallElevator())
                         .Then(_ => _scheduler.Wait(5f))
                         .Then(_ =>

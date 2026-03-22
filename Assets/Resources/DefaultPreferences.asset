@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfe37f12dd8697841a74f2ff2d312675, type: 3}
   m_Name: DefaultPreferences
   m_EditorClassIdentifier: Assembly-CSharp::WrongFloor.Preferences
-  Cursor: {fileID: 0}
+  Cursor: {fileID: 2800000, guid: 84de6b82bffb6e5abb99be03aa0061e3, type: 3}
   DialogueSpeedMul: 1
   InteractionDistance: 1
   DoorSpeed: 2.4
@@ -27,5 +27,6 @@ MonoBehaviour:
   ElevatorFallMaxSpeed: 18
   ElevatorFallTime: 18
   ElevatorFallFloatHeight: 0.8
-  ElevatorFallLockTime: 2
+  ElevatorFallLockTime: 3.5
   ElevatorFallMaxFloorSpeed: 2
+  FallLerpSpeed: 0.5

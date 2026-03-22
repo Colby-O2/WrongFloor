@@ -24,5 +24,6 @@ namespace WrongFloor
         public float ElevatorFallFloatHeight = 1.25f;
         public float ElevatorFallLockTime = 2.0f;
         public float ElevatorFallMaxFloorSpeed = 5.0f;
+        public float FallLerpSpeed = 1.0f;
     }
 }

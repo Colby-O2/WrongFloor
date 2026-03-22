@@ -93,6 +93,7 @@ namespace WrongFloor
         {
             _lightMS = GameManager.GetMonoSystem<ILightMonoSystem>();
             _visualMS = GameManager.GetMonoSystem<IVisualEffectMonoSystem>();
+            //_lightMS.Toggle(LightState.Emergency);
 
             _play.onPointerDown.AddListener(Play);
             _settings.onPointerDown.AddListener(Settings);

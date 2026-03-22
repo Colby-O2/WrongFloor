@@ -19,6 +19,7 @@ namespace WrongFloor
         [SerializeField] private AudioSource _mainSource;
         [SerializeField] private AudioSource _stopSource;
         
+        [SerializeField] private Transform _middle;
         [SerializeField] private GameObject _doorBlock;
         [SerializeField] private Transform _doorL;
         [SerializeField] private Transform _doorR;
@@ -118,6 +119,7 @@ namespace WrongFloor
             _mainSource.Play();
             _movePromise = new();
             _falling = true;
+            _movingFloor = false;
             _didOpenDoorsOnFall = false;
             _fallT = 0;
             _fallFromFloor = _floor;
@@ -160,17 +162,13 @@ namespace WrongFloor
                 _floor = _fallFromFloor - Mathf.FloorToInt(_fallT * relSpeed * WFGameManager.Preferences.ElevatorFallMaxFloorSpeed);
                 SetFloorText();
 
-                if (t > 1.0)
-                {
-                    Debug.Log("MAX SPEED");
-                }
-
                 transform.Translate(Vector3.down * (speed * Time.deltaTime));
                 WFGameManager.Player.MoveToY(transform.position.y + t * WFGameManager.Preferences.ElevatorFallFloatHeight);
 
                 if (_fallT > WFGameManager.Preferences.ElevatorFallLockTime)
                 {
                     WFGameManager.Player.LockJustMove = true;
+                    WFGameManager.Player.LerpTo = _middle.transform.position;
                 }
 
                 if (_fallT > 21.5)
@@ -234,7 +232,8 @@ namespace WrongFloor
         private void SetFloorText()
         {
             if (_floor > 0) _floorNumberText.text = _floor.ToString();
-            else _floorNumberText.text = "G" + (-(_floor - 1)).ToString();
+            else if (_floor == 0) _floorNumberText.text = "L";
+            else _floorNumberText.text = "G" + (-_floor).ToString();
         }
     }
 }

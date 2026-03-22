@@ -92,7 +92,7 @@ namespace WrongFloor
         public void TurnOff(bool isOn = false)
         {
             IsOn = isOn;
-            _mr.materials[_lightMaterialIndex].SetColor("_BaseColor", Color.white);
+            _mr.materials[_lightMaterialIndex].SetColor("_BaseColor", new Color(0.7f, 0.7f, 0.7f));
             SetKeyWord<LightingMethods>(_mr.materials[_lightMaterialIndex], "_LIGHTINGMETHOD", LightingMethods.Texel_Lit);
             _light.gameObject.SetActive(false);
             _as.Stop();

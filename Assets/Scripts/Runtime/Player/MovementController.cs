@@ -2,7 +2,7 @@ using PlazmaGames.Attribute;
 using PlazmaGames.Core;
 
 using UnityEngine;
-
+using WrongFloor.Behaviour;
 using WrongFloor.MonoSystems;
 using WrongFloor.Utilizes;
 
@@ -36,6 +36,8 @@ namespace WrongFloor.Player
         private float Speed => _settings.Speed * (_crouched ? _settings.CrouchedMultiplier : 1.0f);
         public float GravityScale = 1.0f;
         private float Gravity => GRAVITY * _settings.GravityMul * GravityScale;
+        public Vector3? LerpTo = null;
+
         public bool LockJustMove = false;
 
         private bool _crouched = false;
@@ -65,7 +67,24 @@ namespace WrongFloor.Player
 
         private void Update()
         {
-            if (WFGameManager.LockMovement || WFGameManager.IsPaused || LockJustMove) return;
+            if (LockJustMove)
+            {
+                WalkingSound.Enabled = false;
+                if (LerpTo.HasValue)
+                {
+                    Vector3 to = LerpTo.Value;
+                    transform.position =
+                        Vector3.Lerp(transform.position, to, Time.deltaTime * WFGameManager.Preferences.FallLerpSpeed)
+                            .SetY(transform.position.y);
+                }
+                return;
+            }
+            else
+            {
+                
+                WalkingSound.Enabled = true;
+            }
+            if (WFGameManager.LockMovement || WFGameManager.IsPaused) return;
             _movement = Vector2.ClampMagnitude(_input.RawMovement, 1f);
             ApplyGravity();
             UpdateMovement();
