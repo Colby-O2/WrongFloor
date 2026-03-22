@@ -32,6 +32,7 @@ namespace WrongFloor
 
         private bool _falling = false;
         private float _fallT = 0;
+        private bool _didOpenDoorsOnFall = false;
 
         private Promise _doorPromise = null;
         private float _doorPos = 1;
@@ -105,6 +106,7 @@ namespace WrongFloor
             _mainSource.Play();
             _movePromise = new();
             _falling = true;
+            _didOpenDoorsOnFall = false;
             _fallT = 0;
             WFGameManager.Player.transform.parent = transform;
             return _movePromise;
@@ -115,8 +117,9 @@ namespace WrongFloor
             if (_falling)
             {
                 _fallT += Time.deltaTime;
-                if (_fallT > WFGameManager.Preferences.ElevatorFallElevatorOpenTime)
+                if (!_didOpenDoorsOnFall && _fallT > WFGameManager.Preferences.ElevatorFallElevatorOpenTime)
                 {
+                    _didOpenDoorsOnFall = true;
                     OpenDoors();
                 }
 
@@ -125,6 +128,11 @@ namespace WrongFloor
                 if (t >= 0)
                 {
                     speed = Mathf.Lerp(speed, WFGameManager.Preferences.ElevatorFallMaxSpeed, Mathf.Clamp01(t));
+                }
+
+                if (t > 1.0)
+                {
+                    Debug.Log("MAX SPEED");
                 }
                 
                 transform.Translate(Vector3.down * (speed * Time.deltaTime));

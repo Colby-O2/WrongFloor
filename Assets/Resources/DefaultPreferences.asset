@@ -20,8 +20,8 @@ MonoBehaviour:
   FloorMoveAmount: 3
   StartFloor: 21
   ElevatorMoveSpeed: 2.7
-  ElevatorFallInitialSpeed: 0.2
-  ElevatorFallElevatorOpenTime: 2
+  ElevatorFallInitialSpeed: 0.6
+  ElevatorFallElevatorOpenTime: 2.7
   ElevatorFallSpeedUpTime: 3.5
-  ElevatorFallMaxSpeed: 4
+  ElevatorFallMaxSpeed: 10
   ElevatorFallTime: 14
