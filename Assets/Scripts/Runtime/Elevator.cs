@@ -61,9 +61,10 @@ namespace WrongFloor
             transform.position = transform.position.SetY(_correctYHeight);
         }
 
-        public Promise OpenDoors()
+        public Promise OpenDoors(bool unblock = true)
         {
             if (_doorPromise != null) return _doorPromise;
+            if (unblock) _doorBlock.SetActive(false);
             GameManager.GetMonoSystem<IAudioMonoSystem>().PlayAudio(_openSound, AudioType.Sfx, false);
             _doorDir = -1;
             _doorPromise = new Promise();
@@ -73,6 +74,7 @@ namespace WrongFloor
         public Promise CloseDoors()
         {
             if (_doorPromise != null) return _doorPromise;
+            _doorBlock.SetActive(true);
             GameManager.GetMonoSystem<IAudioMonoSystem>().PlayAudio(_closeSound, AudioType.Sfx, false);
             _doorDir = 1;
             _doorPromise = new();
@@ -104,7 +106,6 @@ namespace WrongFloor
             _falling = true;
             _didOpenDoorsOnFall = false;
             _fallT = 0;
-            _doorBlock.SetActive(true);
             WFGameManager.Player.transform.parent = transform;
             WFGameManager.Player.GravityScale = 0.0f;
             return _movePromise;
@@ -118,7 +119,7 @@ namespace WrongFloor
                 if (!_didOpenDoorsOnFall && _fallT > WFGameManager.Preferences.ElevatorFallElevatorOpenTime)
                 {
                     _didOpenDoorsOnFall = true;
-                    OpenDoors();
+                    OpenDoors(false);
                 }
 
                 float speed = WFGameManager.Preferences.ElevatorFallInitialSpeed;
