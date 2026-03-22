@@ -1,4 +1,4 @@
-\##Font(s):
+##Font(s):
 
 * Tiny 5 BoLd by Stefan Schmidt
 
@@ -9,7 +9,7 @@
 
 
 
-\##Raw Sounds (all sourced from Pixabay)
+##Raw Sounds (all sourced from Pixabay)
 
 * Elevator Going Up by freesound\_community
 
