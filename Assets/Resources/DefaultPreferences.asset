@@ -15,5 +15,13 @@ MonoBehaviour:
   Cursor: {fileID: 0}
   DialogueSpeedMul: 1
   InteractionDistance: 1
-  DoorSpeed: 1.8
+  DoorSpeed: 2.4
   CrouchHeight: 0.82
+  FloorMoveAmount: 3
+  StartFloor: 21
+  ElevatorMoveSpeed: 2.7
+  ElevatorFallInitialSpeed: 0.2
+  ElevatorFallElevatorOpenTime: 2
+  ElevatorFallSpeedUpTime: 3.5
+  ElevatorFallMaxSpeed: 4
+  ElevatorFallTime: 14

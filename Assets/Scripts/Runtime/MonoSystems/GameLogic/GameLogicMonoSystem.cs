@@ -46,11 +46,30 @@ namespace WrongFloor
                 case "Start":
                     _scheduler.When(() => IsTriggered("Button"))
                         .Then(_ => _dialogueMs.StartDialoguePromise("Test"))
+                        .Then(_ => _refs.elevator.MoveDown())
+                        .Then(_ => _dialogueMs.StartDialoguePromise("Test"))
                         .Then(_ => _refs.elevator.OpenDoors())
                         .Then(_ =>
                         {
                             Debug.Log("WOW :)");
                         })
+                        .Then(_ => _scheduler.When(() => IsTriggered("Fix")))
+                        .Then(_ =>
+                        {
+                            _refs.elevator.MoveToCorrectPosition();
+                            Debug.Log("FIX :(");
+                        })
+                        .Then(_ => _scheduler.When(() => IsTriggered("Button")))
+                        .Then(_ => _refs.elevator.CloseDoors())
+                        .Then(_ => _refs.elevator.MoveDown())
+                        .Then(_ =>
+                        {
+                            _refs.elevator.MoveToWrongPosition(true);
+                        })
+                        .Then(_ => _refs.elevator.OpenDoors())
+                        .Then(_ => _scheduler.Wait(3))
+                        .Then(_ => _refs.elevator.CloseDoors())
+                        .Then(_ => _refs.elevator.FallElevator())
                         ;
                     break;
                 

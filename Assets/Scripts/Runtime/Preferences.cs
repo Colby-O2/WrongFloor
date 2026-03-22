@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace WrongFloor
 {
@@ -11,5 +12,13 @@ namespace WrongFloor
         public float InteractionDistance = 1.0f;
         public float DoorSpeed = 1.8f;
         public float CrouchHeight = 0.4f;
+        public int FloorMoveAmount = 3;
+        public int StartFloor = 21;
+        public float ElevatorMoveSpeed = 2.7f;
+        public float ElevatorFallInitialSpeed = 0.2f;
+        public float ElevatorFallElevatorOpenTime = 2.0f;
+        public float ElevatorFallSpeedUpTime = 3.5f;
+        public float ElevatorFallMaxSpeed = 4.0f;
+        public float ElevatorFallTime = 14.0f;
     }
 }

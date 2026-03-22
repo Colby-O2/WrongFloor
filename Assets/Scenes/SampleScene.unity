@@ -3282,6 +3282,11 @@ MonoBehaviour:
   _play: {fileID: 1157906075}
   _settings: {fileID: 1053358901}
   _quit: {fileID: 299996936}
+--- !u!1 &525851376 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6400324142386249457, guid: 40e8030e3dbade44f887f9de45762e82, type: 3}
+  m_PrefabInstance: {fileID: 4893564097423572906}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &559149519 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 512900969824513569, guid: 183550cf1801b604aa990d6419ca4ef6, type: 3}
@@ -4716,6 +4721,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6023938649915761739, guid: 40e8030e3dbade44f887f9de45762e82, type: 3}
   m_PrefabInstance: {fileID: 4893564097423572906}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &792150352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525851376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc1983264fea952abba5ac9c7a9d23f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WrongFloor.Button
+  _name: Fix
+  _hint: To Fix
 --- !u!1001 &802286687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12403,7 +12422,7 @@ Transform:
   m_GameObject: {fileID: 2131840482}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -9.46, z: 0}
+  m_LocalPosition: {x: 0, y: -310.2, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12776,7 +12795,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6400324142386249457, guid: 40e8030e3dbade44f887f9de45762e82, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 792150352}
   m_SourcePrefab: {fileID: 100100000, guid: 40e8030e3dbade44f887f9de45762e82, type: 3}
 --- !u!4 &6274087084105711167
 Transform:
