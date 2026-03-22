@@ -8,7 +8,7 @@ namespace WrongFloor
     {
         [SerializeField] private string _eventName;
 
-        private bool _enabled;
+        private bool _enabled = true;
 
         public bool Enabled
         {

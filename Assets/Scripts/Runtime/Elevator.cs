@@ -41,8 +41,14 @@ namespace WrongFloor
         private float _doorPos = 1;
         private int _doorDir = 0;
 
+        private float _mainVol;
+        private float _stopVol;
+
         private void Start()
         {
+            _mainVol = _mainSource.volume;
+            _stopVol = _stopSource.volume;
+
             _wrongYHeight = transform.position.y;
             _floor = WFGameManager.Preferences.StartFloor;
             _floorNumberText.text = _floor.ToString();
@@ -91,7 +97,7 @@ namespace WrongFloor
         public Promise MoveDown(bool autoSetTarget = true)
         {
             if (_movePromise != null) return _movePromise;
-            float vol = GameManager.GetMonoSystem<IAudioMonoSystem>().GetOverallVolume();
+            float vol = GameManager.GetMonoSystem<IAudioMonoSystem>().GetOverallVolume() * _mainVol;
             _mainSource.volume = vol;
             _mainSource.Play();
             _moveStopTime = 0;
@@ -105,7 +111,8 @@ namespace WrongFloor
         public Promise FallElevator()
         {
             if (_movePromise != null) return _movePromise;
-            float vol = GameManager.GetMonoSystem<IAudioMonoSystem>().GetOverallVolume();
+            _mainVol = 1f;
+            float vol = GameManager.GetMonoSystem<IAudioMonoSystem>().GetOverallVolume() * _mainVol;
             _mainSource.volume = vol;
             _mainSource.clip = _crashSound;
             _mainSource.Play();
@@ -183,8 +190,8 @@ namespace WrongFloor
                     const float crossFadeTime = 0.2f;
                     float t = _moveStopTime / crossFadeTime;
                     float vol = GameManager.GetMonoSystem<IAudioMonoSystem>().GetOverallVolume();
-                    _mainSource.volume = vol * (1.0f - t);
-                    _stopSource.volume = vol * t;
+                    _mainSource.volume = _mainVol * vol * (1.0f - t);
+                    _stopSource.volume = _stopVol * vol * t;
                     if (_stopSource.isPlaying == false)
                     {
                         _mainSource.Stop();

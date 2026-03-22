@@ -8,6 +8,13 @@ TagManager:
   - ControlPanel
   - ElevatorPanel
   - ElevatorDoor
+  - LightFlicker1
+  - LightFlicker2
+  - LightFlicker3
+  - LightFlicker4
+  - Jumpscare
+  - Crying1
+  - Crying2
   layers:
   - Default
   - TransparentFX

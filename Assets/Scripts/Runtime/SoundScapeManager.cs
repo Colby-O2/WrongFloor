@@ -6,8 +6,13 @@ namespace WrongFloor
     public class SoundScapeManager : MonoBehaviour
     {
         [SerializeField] private AudioSource _windAS;
+        [SerializeField] private AudioSource _heartAS;
+        [SerializeField] private AudioSource _ambienceAS;
+        [SerializeField] private AudioSource _jumpscareAS;
 
         private Coroutine _windFadeRoutine;
+        private Coroutine _heartFadeRoutine;
+        private Coroutine _ambienceFadeRoutine;
 
         public void StopWind()
         {
@@ -26,12 +31,57 @@ namespace WrongFloor
             if (_windFadeRoutine != null)
                 StopCoroutine(_windFadeRoutine);
 
-            _windFadeRoutine = StartCoroutine(FadeVolumeRoutine(targetVolume, duration));
+            _windFadeRoutine = StartCoroutine(FadeVolumeRoutine(targetVolume, duration, _windAS, _windFadeRoutine));
         }
 
-        private IEnumerator FadeVolumeRoutine(float targetVolume, float duration)
+        public void StopHeart()
         {
-            float startVolume = _windAS.volume;
+            _heartAS.Stop();
+        }
+
+        public void PlayHeart()
+        {
+            _heartAS.Play();
+        }
+
+        public void PlayJumpScare()
+        {
+            _jumpscareAS.PlayOneShot(_jumpscareAS.clip);
+        }
+
+        public void HeartVolume(float targetVolume, float duration = 4f)
+        {
+            targetVolume = Mathf.Clamp01(targetVolume);
+
+            if (_heartFadeRoutine != null)
+                StopCoroutine(_heartFadeRoutine);
+
+            _heartFadeRoutine = StartCoroutine(FadeVolumeRoutine(targetVolume, duration, _heartAS, _heartFadeRoutine));
+        }
+
+        public void StopAmbience()
+        {
+            _ambienceAS.Stop();
+        }
+
+        public void PlayAmbience()
+        {
+            _ambienceAS.Play();
+        }
+
+        public void AmbienceVolume(float targetVolume, float duration = 4f)
+        {
+            targetVolume = Mathf.Clamp01(targetVolume);
+
+            if (_ambienceFadeRoutine != null)
+                StopCoroutine(_ambienceFadeRoutine);
+
+            _ambienceFadeRoutine = StartCoroutine(FadeVolumeRoutine(targetVolume, duration, _ambienceAS, _ambienceFadeRoutine));
+        }
+
+        private IEnumerator FadeVolumeRoutine(float targetVolume, float duration, AudioSource audioSource, Coroutine coroutine)
+        {
+            float startVolume = audioSource.volume;
             float time = 0f;
 
             while (time < duration)
@@ -39,12 +89,12 @@ namespace WrongFloor
                 time += Time.deltaTime;
                 float t = time / duration;
 
-                _windAS.volume = Mathf.Lerp(startVolume, targetVolume, t);
+                audioSource.volume = Mathf.Lerp(startVolume, targetVolume, t);
                 yield return null;
             }
 
-            _windAS.volume = targetVolume;
-            _windFadeRoutine = null;
+            audioSource.volume = targetVolume;
+            coroutine = null;
         }
     }
 }

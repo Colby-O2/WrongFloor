@@ -15,11 +15,13 @@ namespace WrongFloor
 
         [SerializeField, ReadOnly] private bool _isOn = true;
 
+        public bool Disable = false;
+
         private IEnumerator Flicker()
         {
             while (this)
             {
-                if (!_lc.IsOn)
+                if (!_lc.IsOn || Disable)
                 {
                     yield return null;
                     continue;
@@ -28,7 +30,7 @@ namespace WrongFloor
                 float wait = Random.Range(_flickerInterval.x, _flickerInterval.y);
                 yield return new WaitForSeconds(wait);
 
-                if (!_lc.IsOn)
+                if (!_lc.IsOn || Disable)
                 {
                     yield return null;
                     continue;
@@ -40,6 +42,11 @@ namespace WrongFloor
                     _lc.TurnOff(true);
                     float offTime = Random.Range(_glitchDuration.x, _glitchDuration.y);
                     yield return new WaitForSeconds(offTime);
+                    if (!_lc.IsOn)
+                    {
+                        yield return null;
+                        continue;
+                    }
                     _isOn = true;
                     _lc.TurnOn();
                 }
@@ -49,6 +56,11 @@ namespace WrongFloor
                     _lc.TurnOff(true);
                     float offTime = Random.Range(_flickerDuration.x, _flickerDuration.y);
                     yield return new WaitForSeconds(offTime);
+                    if (!_lc.IsOn)
+                    {
+                        yield return null;
+                        continue;
+                    }
                     _isOn = true;
                     _lc.TurnOn();
                 }

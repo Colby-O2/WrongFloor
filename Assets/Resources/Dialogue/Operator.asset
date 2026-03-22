@@ -16,23 +16,6 @@ MonoBehaviour:
   includeInDatabase: 1
   Name: Operator
   Nodes:
-  - Guid: 39481013-a47a-4b90-8cc4-df766dfaaaa2
-    ActorName: Operator
-    GroupName: 
-    Type: 1
-    Text: There is a maintenance corridor just outside.
-    EventID: 
-    position: {x: 716, y: -8}
-    PropertyType: 
-    PropertyBooleanValue: 0
-    PropertyIntValue: 0
-    PropertyName: 
-    IncrementAmount: 0
-    ComparisonType: 0
-    ComparsionCondition: 0
-    Choices:
-    - Text: 
-      Next: 5d27cb21-348a-49a7-ab70-dd50bbcc24ea
   - Guid: 00f79e56-e4b3-4350-bc90-05913ee8a963
     ActorName: 
     GroupName: 
@@ -69,41 +52,6 @@ MonoBehaviour:
       Next: e1270f8e-05ed-4048-befb-08f4bcf35307
     - Text: 
       Next: ae064f82-889d-4373-96a2-78a39f9d09b5
-  - Guid: 5d27cb21-348a-49a7-ab70-dd50bbcc24ea
-    ActorName: Operator
-    GroupName: 
-    Type: 1
-    Text: "Step out, go down the hallway, and flip the switch and I\u2019ll bring
-      the elevator back online."
-    EventID: 
-    position: {x: 1137, y: 0}
-    PropertyType: 
-    PropertyBooleanValue: 0
-    PropertyIntValue: 0
-    PropertyName: 
-    IncrementAmount: 0
-    ComparisonType: 0
-    ComparsionCondition: 0
-    Choices:
-    - Text: 
-      Next: 616bb319-f15c-46b8-95ae-ca958d001fe6
-  - Guid: 616bb319-f15c-46b8-95ae-ca958d001fe6
-    ActorName: 
-    GroupName: 
-    Type: 5
-    Text: 
-    EventID: 
-    position: {x: 1525, y: 17}
-    PropertyType: Int
-    PropertyBooleanValue: 0
-    PropertyIntValue: 0
-    PropertyName: Count
-    IncrementAmount: 1
-    ComparisonType: 0
-    ComparsionCondition: 0
-    Choices:
-    - Text: 
-      Next: 
   - Guid: e1270f8e-05ed-4048-befb-08f4bcf35307
     ActorName: 
     GroupName: 
@@ -142,57 +90,6 @@ MonoBehaviour:
       Next: 2ac5a373-c17b-44c6-861f-603a41c52d7e
     - Text: 
       Next: 0b05457d-ffed-4c87-971e-70ea2a7e6e66
-  - Guid: ae064f82-889d-4373-96a2-78a39f9d09b5
-    ActorName: Operator
-    GroupName: 
-    Type: 1
-    Text: Hello? It looks like the Elevator stalled.
-    EventID: 
-    position: {x: 262, y: 20}
-    PropertyType: 
-    PropertyBooleanValue: 0
-    PropertyIntValue: 0
-    PropertyName: 
-    IncrementAmount: 0
-    ComparisonType: 0
-    ComparsionCondition: 0
-    Choices:
-    - Text: 
-      Next: 39481013-a47a-4b90-8cc4-df766dfaaaa2
-  - Guid: 76a39fc8-0fc0-48cc-a04c-4e643baa2db4
-    ActorName: Operator
-    GroupName: 
-    Type: 1
-    Text: Go flip with switch.
-    EventID: 
-    position: {x: 367, y: -229}
-    PropertyType: 
-    PropertyBooleanValue: 0
-    PropertyIntValue: 0
-    PropertyName: 
-    IncrementAmount: 0
-    ComparisonType: 0
-    ComparsionCondition: 0
-    Choices:
-    - Text: 
-      Next: 85a0af76-412c-442b-9f3a-e9898ddd8fc5
-  - Guid: 0b05457d-ffed-4c87-971e-70ea2a7e6e66
-    ActorName: Operator
-    GroupName: 
-    Type: 1
-    Text: Go flip with switch.
-    EventID: 
-    position: {x: 643, y: -460}
-    PropertyType: 
-    PropertyBooleanValue: 0
-    PropertyIntValue: 0
-    PropertyName: 
-    IncrementAmount: 0
-    ComparisonType: 0
-    ComparsionCondition: 0
-    Choices:
-    - Text: 
-      Next: f741796a-69b6-4baa-8533-df6f6f44af11
   - Guid: 2ac5a373-c17b-44c6-861f-603a41c52d7e
     ActorName: 
     GroupName: 
@@ -209,14 +106,14 @@ MonoBehaviour:
     ComparsionCondition: 3
     Choices:
     - Text: 
-      Next: 8e4a8e18-59ab-429d-ad99-0953945335b6
+      Next: 9e0c6a88-28ca-401c-965c-e25ef680acad
     - Text: 
       Next: e8beb868-2e10-4cea-abf4-e96c6fdec749
   - Guid: e8beb868-2e10-4cea-abf4-e96c6fdec749
     ActorName: Operator
     GroupName: 
     Type: 1
-    Text: Goodbye.
+    Text: Go flip the switch.
     EventID: 
     position: {x: 927, y: -690}
     PropertyType: 
@@ -229,23 +126,6 @@ MonoBehaviour:
     Choices:
     - Text: 
       Next: a4f1760a-fd1b-4b62-9174-7bd15d6917cf
-  - Guid: 8e4a8e18-59ab-429d-ad99-0953945335b6
-    ActorName: Operator
-    GroupName: 
-    Type: 1
-    Text: Yo
-    EventID: 
-    position: {x: 771, y: -980}
-    PropertyType: 
-    PropertyBooleanValue: 0
-    PropertyIntValue: 0
-    PropertyName: 
-    IncrementAmount: 0
-    ComparisonType: 0
-    ComparsionCondition: 0
-    Choices:
-    - Text: 
-      Next: 
   - Guid: 85a0af76-412c-442b-9f3a-e9898ddd8fc5
     ActorName: 
     GroupName: 
@@ -287,6 +167,215 @@ MonoBehaviour:
     Text: 
     EventID: 
     position: {x: 1317, y: -684}
+    PropertyType: Int
+    PropertyBooleanValue: 0
+    PropertyIntValue: 0
+    PropertyName: Count
+    IncrementAmount: 1
+    ComparisonType: 0
+    ComparsionCondition: 0
+    Choices:
+    - Text: 
+      Next: 
+  - Guid: 9e0c6a88-28ca-401c-965c-e25ef680acad
+    ActorName: 
+    GroupName: 
+    Type: 6
+    Text: 
+    EventID: 
+    position: {x: 736, y: -1094}
+    PropertyType: Int
+    PropertyBooleanValue: 0
+    PropertyIntValue: 0
+    PropertyName: Count
+    IncrementAmount: 0
+    ComparisonType: 0
+    ComparsionCondition: 4
+    Choices:
+    - Text: 
+      Next: 552938ae-a721-4a1b-a1bb-79b299cbe79a
+    - Text: 
+      Next: f670794f-571d-4395-be96-bada0b111307
+  - Guid: ae064f82-889d-4373-96a2-78a39f9d09b5
+    ActorName: Operator
+    GroupName: 
+    Type: 1
+    Text: Hello? It looks like the elevator stalled.
+    EventID: 
+    position: {x: 262, y: 20}
+    PropertyType: 
+    PropertyBooleanValue: 0
+    PropertyIntValue: 0
+    PropertyName: 
+    IncrementAmount: 0
+    ComparisonType: 0
+    ComparsionCondition: 0
+    Choices:
+    - Text: 
+      Next: 39481013-a47a-4b90-8cc4-df766dfaaaa2
+  - Guid: 39481013-a47a-4b90-8cc4-df766dfaaaa2
+    ActorName: Operator
+    GroupName: 
+    Type: 1
+    Text: "There\u2019s a hallway outside. At the end, there\u2019s a small maintenance
+      room."
+    EventID: 
+    position: {x: 716, y: -8}
+    PropertyType: 
+    PropertyBooleanValue: 0
+    PropertyIntValue: 0
+    PropertyName: 
+    IncrementAmount: 0
+    ComparisonType: 0
+    ComparsionCondition: 0
+    Choices:
+    - Text: 
+      Next: 5d27cb21-348a-49a7-ab70-dd50bbcc24ea
+  - Guid: 616bb319-f15c-46b8-95ae-ca958d001fe6
+    ActorName: 
+    GroupName: 
+    Type: 5
+    Text: 
+    EventID: 
+    position: {x: 1593, y: 16}
+    PropertyType: Int
+    PropertyBooleanValue: 0
+    PropertyIntValue: 0
+    PropertyName: Count
+    IncrementAmount: 1
+    ComparisonType: 0
+    ComparsionCondition: 0
+    Choices:
+    - Text: 
+      Next: 
+  - Guid: 5d27cb21-348a-49a7-ab70-dd50bbcc24ea
+    ActorName: Operator
+    GroupName: 
+    Type: 1
+    Text: "Go there. Flip the switch. \u2026I\u2019ll handle the rest."
+    EventID: 
+    position: {x: 1137, y: 0}
+    PropertyType: 
+    PropertyBooleanValue: 0
+    PropertyIntValue: 0
+    PropertyName: 
+    IncrementAmount: 0
+    ComparisonType: 0
+    ComparsionCondition: 0
+    Choices:
+    - Text: 
+      Next: 616bb319-f15c-46b8-95ae-ca958d001fe6
+  - Guid: 552938ae-a721-4a1b-a1bb-79b299cbe79a
+    ActorName: 
+    GroupName: 
+    Type: 6
+    Text: 
+    EventID: 
+    position: {x: 859, y: -1417}
+    PropertyType: Int
+    PropertyBooleanValue: 0
+    PropertyIntValue: 0
+    PropertyName: Count
+    IncrementAmount: 0
+    ComparisonType: 0
+    ComparsionCondition: 5
+    Choices:
+    - Text: 
+      Next: 8e4a8e18-59ab-429d-ad99-0953945335b6
+    - Text: 
+      Next: fcaa16fe-1e83-4706-852b-3572069d9115
+  - Guid: fcaa16fe-1e83-4706-852b-3572069d9115
+    ActorName: Operator
+    GroupName: 
+    Type: 1
+    Text: Thank you for your cooperation.
+    EventID: 
+    position: {x: 1126, y: -1457}
+    PropertyType: 
+    PropertyBooleanValue: 0
+    PropertyIntValue: 0
+    PropertyName: 
+    IncrementAmount: 0
+    ComparisonType: 0
+    ComparsionCondition: 0
+    Choices:
+    - Text: 
+      Next: 
+  - Guid: 8e4a8e18-59ab-429d-ad99-0953945335b6
+    ActorName: Operator
+    GroupName: 
+    Type: 1
+    Text: Error
+    EventID: 
+    position: {x: 1128, y: -1797}
+    PropertyType: 
+    PropertyBooleanValue: 0
+    PropertyIntValue: 0
+    PropertyName: 
+    IncrementAmount: 0
+    ComparisonType: 0
+    ComparsionCondition: 0
+    Choices:
+    - Text: 
+      Next: 
+  - Guid: 0b05457d-ffed-4c87-971e-70ea2a7e6e66
+    ActorName: Operator
+    GroupName: 
+    Type: 1
+    Text: Go flip the switch.
+    EventID: 
+    position: {x: 643, y: -460}
+    PropertyType: 
+    PropertyBooleanValue: 0
+    PropertyIntValue: 0
+    PropertyName: 
+    IncrementAmount: 0
+    ComparisonType: 0
+    ComparsionCondition: 0
+    Choices:
+    - Text: 
+      Next: f741796a-69b6-4baa-8533-df6f6f44af11
+  - Guid: 76a39fc8-0fc0-48cc-a04c-4e643baa2db4
+    ActorName: Operator
+    GroupName: 
+    Type: 1
+    Text: Go flip the switch.
+    EventID: 
+    position: {x: 367, y: -229}
+    PropertyType: 
+    PropertyBooleanValue: 0
+    PropertyIntValue: 0
+    PropertyName: 
+    IncrementAmount: 0
+    ComparisonType: 0
+    ComparsionCondition: 0
+    Choices:
+    - Text: 
+      Next: 85a0af76-412c-442b-9f3a-e9898ddd8fc5
+  - Guid: f670794f-571d-4395-be96-bada0b111307
+    ActorName: Operator
+    GroupName: 
+    Type: 1
+    Text: Go flip the switch.
+    EventID: 
+    position: {x: 1062, y: -1085}
+    PropertyType: 
+    PropertyBooleanValue: 0
+    PropertyIntValue: 0
+    PropertyName: 
+    IncrementAmount: 0
+    ComparisonType: 0
+    ComparsionCondition: 0
+    Choices:
+    - Text: 
+      Next: dda723e0-25b7-4c6a-9222-d4055e67e2b5
+  - Guid: dda723e0-25b7-4c6a-9222-d4055e67e2b5
+    ActorName: 
+    GroupName: 
+    Type: 5
+    Text: 
+    EventID: 
+    position: {x: 1446, y: -1059}
     PropertyType: Int
     PropertyBooleanValue: 0
     PropertyIntValue: 0

@@ -15,20 +15,20 @@ namespace WrongFloor.MonoSystems
         private List<LightController> _normalLights = new List<LightController>();
         private List<LightController> _emergencyLights = new List<LightController>();
 
-        private void NormalLightToggle(bool isOn)
+        private void NormalLightToggle(bool isOn, bool isDark = false)
         {
             foreach (LightController light in _normalLights)
             {
-                if (isOn) light.TurnOn();
+                if (isOn || (isDark && light.ForceOnWhenDark)) light.TurnOn();
                 else light.TurnOff();
             }
         }
 
-        private void EmergencyLightToggle(bool isOn)
+        private void EmergencyLightToggle(bool isOn, bool isDark = false)
         {
             foreach (LightController light in _emergencyLights)
             {
-                if (isOn) light.TurnOn();
+                if (isOn || (isDark && light.ForceOnWhenDark)) light.TurnOn();
                 else light.TurnOff();
             }
         }
@@ -94,8 +94,8 @@ namespace WrongFloor.MonoSystems
                     EmergencyLightToggle(true);
                     break;
                 case LightState.Off:
-                    NormalLightToggle(false);
-                    EmergencyLightToggle(false);
+                    NormalLightToggle(false, isDark: true);
+                    EmergencyLightToggle(false, isDark: true);
                     break;
             }
         }

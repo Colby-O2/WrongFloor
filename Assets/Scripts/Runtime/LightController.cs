@@ -17,6 +17,8 @@ namespace WrongFloor
         [SerializeField] private Light _light;
         [SerializeField] private AudioSource _as;
 
+        public bool ForceOnWhenDark = false;
+
         private float _orignalIntensity;
         private Color _orignalColor;
 
