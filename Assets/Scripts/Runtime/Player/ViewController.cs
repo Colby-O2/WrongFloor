@@ -1,6 +1,7 @@
 using PlazmaGames.Attribute;
 using PlazmaGames.Core;
 using UnityEngine;
+using UnityEngine.Serialization;
 using WrongFloor.MonoSystems;
 using WrongFloor.Utilizes;
 
@@ -11,7 +12,8 @@ namespace WrongFloor.Player
         [SerializeField] private MovementSettings _settings;
         [SerializeField] private Transform _playerBody;
 
-        [SerializeField, ReadOnly] private Vector3 _startPos;
+        [SerializeField, ReadOnly] private Vector3 _startHeadPos;
+        [SerializeField, ReadOnly] private Vector3 _headPos;
         [SerializeField, ReadOnly] private float _pitch = 0f;
         [SerializeField, ReadOnly] private float _yaw = 0f;
 
@@ -22,7 +24,8 @@ namespace WrongFloor.Player
 
         private void Awake()
         {
-            _startPos = transform.localPosition;
+            _startHeadPos = transform.localPosition;
+            _headPos = _startHeadPos;
             if (!_playerBody) _playerBody = transform.parent;
             _input = GameManager.GetMonoSystem<IInputMonoSystem>();
         }
@@ -52,8 +55,8 @@ namespace WrongFloor.Player
 
         private void StopHeadMovement()
         {
-            if (transform.localPosition == _startPos) return;
-            transform.localPosition = Vector3.Lerp(transform.localPosition, _startPos, Time.deltaTime);
+            if (transform.localPosition == _headPos) return;
+            transform.localPosition = Vector3.Lerp(transform.localPosition, _headPos, Time.deltaTime);
         }
 
         private void ProcessHead()
@@ -81,6 +84,16 @@ namespace WrongFloor.Player
                 CheckForHeadMovement();
                 StopHeadMovement();
             }
+        }
+
+        public void Crouch()
+        {
+            _headPos = _startHeadPos.AddY(-WFGameManager.Preferences.CrouchHeight);
+        }
+        
+        public void Uncrouch()
+        {
+            _headPos = _startHeadPos;
         }
     }
 }

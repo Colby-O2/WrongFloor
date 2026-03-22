@@ -18,11 +18,13 @@ namespace WrongFloor
 
         private class Refs
         {
+            public Elevator elevator;
         }
         
         private void Start()
         {
             _dialogueMs = GameManager.GetMonoSystem<IDialogueMonoSystem>();
+            _refs.elevator = GameObject.FindAnyObjectByType<Elevator>();
         }
 
         private void Update()
@@ -44,6 +46,7 @@ namespace WrongFloor
                 case "Start":
                     _scheduler.When(() => IsTriggered("Button"))
                         .Then(_ => _dialogueMs.StartDialoguePromise("Test"))
+                        .Then(_ => _refs.elevator.OpenDoors())
                         .Then(_ =>
                         {
                             Debug.Log("WOW :)");
@@ -66,6 +69,16 @@ namespace WrongFloor
         {
             if (state) _inRange.Add(rangeName);
             else _inRange.Remove(rangeName);
+
+            switch (rangeName)
+            {
+                case "Crouch":
+                    Debug.Log("Crouch " + state.ToString());
+                    if (state) WFGameManager.Player.Crouch();
+                    else WFGameManager.Player.Uncrouch();
+                    break;
+                default: break;
+            }
         }
 
         private bool IsTriggered(string triggerName) => _triggers.Remove(triggerName);

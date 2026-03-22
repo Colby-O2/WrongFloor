@@ -14,6 +14,7 @@ namespace WrongFloor.Player
 
         [Header("Movement")]
         [Min(0)] public float Speed = 10f;
+        public float CrouchedMultiplier = 0.5f;
         [Range(0f, 1f)] public float BackwardSpeedMul = 0.5f;
         [Range(0f, 1f)] public float StrafingSpeedMul = 1f;
         [Min(0)] public float GravityMul = 1f;
