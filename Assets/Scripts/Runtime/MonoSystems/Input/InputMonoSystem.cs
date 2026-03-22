@@ -1,6 +1,9 @@
+using PlazmaGames.Core;
+using PlazmaGames.UI;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using WrongFloor.UI;
 
 namespace WrongFloor.MonoSystems
 {
@@ -63,6 +66,15 @@ namespace WrongFloor.MonoSystems
         {
             RawMovement = Vector2.zero;
             _moveAction.Disable();
+        }
+
+        public void Update()
+        {
+            if (Keyboard.current.escapeKey.wasPressedThisFrame || Keyboard.current.pKey.wasPressedThisFrame)
+            {
+                if (GameManager.GetMonoSystem<IUIMonoSystem>().GetCurrentViewIs<GameView>()) GameManager.GetMonoSystem<IUIMonoSystem>().Show<PausedView>();
+                else if (GameManager.GetMonoSystem<IUIMonoSystem>().GetCurrentViewIs<PausedView>()) GameManager.GetMonoSystem<IUIMonoSystem>().GetView<PausedView>().Resume();
+            }
         }
     }
 }

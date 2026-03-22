@@ -20,6 +20,8 @@ namespace WrongFloor
         [SerializeField] private InputMonoSystem _inputSystem;
         [SerializeField] private DialogueMonoSystem _dialogueSystem;
         [SerializeField] private GameLogicMonoSystem _gameLogicSystem;
+        [SerializeField] private LightMonoSystem _lightSystem;
+        [SerializeField] private VisualEffectMonoSystem _visualEffectSystem;
 
         public static Preferences Preferences { get => (Instance as WFGameManager)._preferences; }
         [SerializeField] private Preferences _preferences;
@@ -35,7 +37,6 @@ namespace WrongFloor
 
         private void Start()
         {
-            HideCursor();
             Player = GameObject.FindObjectsByType<Player.MovementController>()[0].GetComponent<Player.MovementController>();
         }
 
@@ -89,6 +90,8 @@ namespace WrongFloor
             AddMonoSystem<InputMonoSystem, IInputMonoSystem>(_inputSystem);
             AddMonoSystem<DialogueMonoSystem, IDialogueMonoSystem>(_dialogueSystem);
             AddMonoSystem<GameLogicMonoSystem, IGameLogicMonoSystem>(_gameLogicSystem);
+            AddMonoSystem<LightMonoSystem, ILightMonoSystem>(_lightSystem);
+            AddMonoSystem<VisualEffectMonoSystem, IVisualEffectMonoSystem>(_visualEffectSystem);
         }
 
         public override string GetApplicationName()
