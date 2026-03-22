@@ -11,6 +11,7 @@ namespace WrongFloor
     public class MainMenuView : View
     {
         [SerializeField] private GameObject _mainMenuBackground;
+        [SerializeField] private GameObject _mainMenuScene;
 
         [SerializeField] protected GameObject _settingBackdrop;
 
@@ -53,6 +54,7 @@ namespace WrongFloor
             {
                 _visualMS.FadeIn(5f);
                 _mainMenuBackground.SetActive(false);
+                _mainMenuScene.SetActive(false);
                 _settingBackdrop.SetActive(true);
                 PSXEffectSettings psxSettings = _visualMS.GetPSXSettings();
                 psxSettings.EnableFog.value = false;
@@ -80,6 +82,7 @@ namespace WrongFloor
             WFGameManager.ShowCursor();
             WFGameManager.IsPaused = true;
             _mainMenuBackground.SetActive(true);
+            _mainMenuScene.SetActive(true);
             _settingBackdrop.SetActive(false);
 
             PSXEffectSettings psxSettings = _visualMS.GetPSXSettings();
