@@ -294,8 +294,8 @@ namespace PlazmaGames.Audio
         public void SetOverallVolume(float volume)
         {
             _overallSound = volume;
-            foreach (AudioSourceInfo info in _sfxSources) info.src.volume = info.vol * _overallSound * _sfxSound;
-            foreach (AudioSourceInfo info in _musicSources) info.src.volume = info.vol * _overallSound * _musicSound;
+            foreach (AudioSourceInfo info in _sfxSources) if (info != null && info.src != null) info.src.volume = info.vol * _overallSound * _sfxSound;
+            foreach (AudioSourceInfo info in _musicSources) if (info != null && info.src != null) info.src.volume = info.vol * _overallSound * _musicSound;
             _ambientSource.volume = _overallSound * _ambientSound;
             _musicSource.volume = _overallSound * _musicSound;
         }
@@ -303,7 +303,7 @@ namespace PlazmaGames.Audio
         public void SetSfXVolume(float volume)
         {
             _sfxSound = volume;
-            foreach (AudioSourceInfo info in _sfxSources) info.src.volume = info.vol * _overallSound * _sfxSound;
+            foreach (AudioSourceInfo info in _sfxSources) if (info != null && info.src != null) info.src.volume = info.vol * _overallSound * _sfxSound;
             _ambientSource.volume = _overallSound * _ambientSound;
             _musicSource.volume = _overallSound * _musicSound;
         }
@@ -317,7 +317,7 @@ namespace PlazmaGames.Audio
         public void SetMusicVolume(float volume)
         {
             _musicSound = volume;
-            foreach (AudioSourceInfo info in _musicSources) info.src.volume = info.vol * _overallSound * _musicSound;
+            foreach (AudioSourceInfo info in _musicSources) if (info != null && info.src != null) info.src.volume = info.vol * _overallSound * _musicSound;
             _musicSource.volume = _overallSound * _musicSound;
         }
 
@@ -408,8 +408,11 @@ namespace PlazmaGames.Audio
         private void OnSceneLoad(Scene scene, LoadSceneMode mode)
         {
             if (!_hasInitialized) return;
+            Debug.Log("Yo");
+            _sfxSources.Clear();
+            _musicSources.Clear();
 
-            AudioSource[] audioSrc = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
+            AudioSource[] audioSrc = FindObjectsByType<AudioSource>();
             foreach (AudioSource audioSource in audioSrc)
             {
                 AudioSourceInfo info = new AudioSourceInfo();
@@ -461,7 +464,7 @@ namespace PlazmaGames.Audio
 
             _sfxSources = new List<AudioSourceInfo>();
             _musicSources = new List<AudioSourceInfo>();
-            AudioSource[] audioSrc = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
+            AudioSource[] audioSrc = FindObjectsByType<AudioSource>();
             foreach (AudioSource audioSource in audioSrc)
             {
                 AudioSourceInfo info = new AudioSourceInfo();
