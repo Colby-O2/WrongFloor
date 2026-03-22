@@ -187,7 +187,7 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 24
   EnableDither:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   DitherMode:
     m_OverrideState: 0
@@ -202,26 +202,26 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0.5
   DitherThreshold:
-    m_OverrideState: 0
-    m_Value: 0.1
+    m_OverrideState: 1
+    m_Value: 0
   EnableFog:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   FogColor:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {r: 0, g: 0, b: 0, a: 1}
   FogDensity:
-    m_OverrideState: 0
-    m_Value: 1
+    m_OverrideState: 1
+    m_Value: 0.642
   FogNoiseStrength:
-    m_OverrideState: 0
-    m_Value: 0.1
+    m_OverrideState: 1
+    m_Value: 0.563
   FogEdgeSmoothness:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0.5
   FogNoiseScale:
-    m_OverrideState: 0
-    m_Value: 0.5
+    m_OverrideState: 1
+    m_Value: 1
   FogNoiseStart:
-    m_OverrideState: 0
-    m_Value: 0.7
+    m_OverrideState: 1
+    m_Value: 0.046
