@@ -17,7 +17,7 @@ MonoBehaviour:
   YLookLimit: {x: -80, y: 80}
   InvertLookY: 0
   InvertLookX: 0
-  Speed: 10
+  Speed: 5
   BackwardSpeedMul: 0.5
   StrafingSpeedMul: 1
   GravityMul: 1
@@ -25,6 +25,6 @@ MonoBehaviour:
   AirControl: 0.2
   TerminalVelocity: 50
   EnableHeadMotion: 1
-  HeadBobAmount: 0.00162
-  HeadBobFreqency: 1
-  HeadBobSmoothing: 10
+  HeadBobAmount: 0.00291
+  HeadBobFreqency: 16.7
+  HeadBobSmoothing: 59.1

@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WallPaperMat
+  m_Name: Wood2Mat
   m_Shader: {fileID: -6465566751694194690, guid: 8b8b697340fa16848ba72c93c8de257b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -66,7 +66,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: aac0fa70c3ec82040b6d5ce3eadec47b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 40ef97225ca0d2c47b82157d5d8ce6d8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
