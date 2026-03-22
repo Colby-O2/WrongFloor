@@ -36,6 +36,7 @@ namespace WrongFloor.Player
         private float Speed => _settings.Speed * (_crouched ? _settings.CrouchedMultiplier : 1.0f);
         public float GravityScale = 1.0f;
         private float Gravity => GRAVITY * _settings.GravityMul * GravityScale;
+        public bool LockJustMove = false;
 
         private bool _crouched = false;
 
@@ -64,7 +65,7 @@ namespace WrongFloor.Player
 
         private void Update()
         {
-            if (WFGameManager.LockMovement || WFGameManager.IsPaused) return;
+            if (WFGameManager.LockMovement || WFGameManager.IsPaused || LockJustMove) return;
             _movement = Vector2.ClampMagnitude(_input.RawMovement, 1f);
             ApplyGravity();
             UpdateMovement();

@@ -3,6 +3,7 @@ using PlazmaGames.Audio;
 using PlazmaGames.Core;
 using TMPro;
 using UnityEngine;
+using WrongFloor.MonoSystems;
 using WrongFloor.Utilizes;
 using AudioType = PlazmaGames.Audio.AudioType;
 
@@ -34,6 +35,7 @@ namespace WrongFloor
         private bool _falling = false;
         private float _fallT = 0;
         private bool _didOpenDoorsOnFall = false;
+        private int _fallFromFloor;
 
         private Promise _doorPromise = null;
         private float _doorPos = 1;
@@ -106,6 +108,7 @@ namespace WrongFloor
             _falling = true;
             _didOpenDoorsOnFall = false;
             _fallT = 0;
+            _fallFromFloor = _floor;
             WFGameManager.Player.transform.parent = transform;
             WFGameManager.Player.GravityScale = 0.0f;
             return _movePromise;
@@ -129,16 +132,26 @@ namespace WrongFloor
                     speed = Mathf.Lerp(speed, WFGameManager.Preferences.ElevatorFallMaxSpeed, Mathf.Clamp01(t));
                 }
 
+                float relSpeed = speed / WFGameManager.Preferences.ElevatorFallMaxSpeed;
+                _floor = _fallFromFloor - Mathf.FloorToInt(_fallT * relSpeed * WFGameManager.Preferences.ElevatorFallMaxFloorSpeed);
+                SetFloorText();
+
                 if (t > 1.0)
                 {
                     Debug.Log("MAX SPEED");
                 }
                 
                 transform.Translate(Vector3.down * (speed * Time.deltaTime));
-                WFGameManager.Player.MoveToY(transform.position.y);
+                WFGameManager.Player.MoveToY(transform.position.y + t * WFGameManager.Preferences.ElevatorFallFloatHeight);
 
-                if (_mainSource.isPlaying == false)
+                if (_fallT > WFGameManager.Preferences.ElevatorFallLockTime)
                 {
+                    WFGameManager.Player.LockJustMove = true;
+                }
+                
+                if (_fallT > 21.5)
+                {
+                    GameManager.GetMonoSystem<IVisualEffectMonoSystem>().FadeOut(0);
                     _falling = false;
                     Promise.ResolveExisting(ref _movePromise);
                 }
@@ -192,6 +205,12 @@ namespace WrongFloor
                 _doorR.localScale = _doorR.localScale.SetZ(1.0f + t);
                 _doorL.localScale = _doorL.localScale.SetZ(1.0f + t);
             }
+        }
+
+        private void SetFloorText()
+        {
+            if (_floor > 0) _floorNumberText.text = _floor.ToString();
+            else _floorNumberText.text = "G" + (-(_floor - 1)).ToString();
         }
     }
 }
