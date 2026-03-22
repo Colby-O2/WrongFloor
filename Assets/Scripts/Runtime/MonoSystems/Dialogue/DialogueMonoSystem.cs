@@ -1,12 +1,29 @@
 using DialogueGraph;
-using WrongFloor.UI;
 using PlazmaGames.Core;
 using PlazmaGames.UI;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using WrongFloor.UI;
 
 namespace WrongFloor.MonoSystems
 {
     public class DialogueMonoSystem : DialogueController, IDialogueMonoSystem
     {
+        private void OnEnable()
+        {
+            SceneManager.sceneLoaded += OnSceneLoad;
+        }
+
+        private void OnDisable()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoad;
+        }
+
+        private void OnSceneLoad(Scene scene, LoadSceneMode mode)
+        {
+            SetInt("Count", 0);
+        }
+
         private void StartDialogue(string dialogueName, System.Action finsihCallback, bool passive)
         {
             GameManager.GetMonoSystem<IUIMonoSystem>().GetView<GameView>().SetPassive(passive);
