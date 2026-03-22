@@ -262,6 +262,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Elevator
       objectReference: {fileID: 0}
+    - target: {fileID: 7267877801995993827, guid: abae66817d2b6a18fa4491b280c307ea, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1a5545254a9a23b4591017a1bb74ed0d, type: 2}
+    - target: {fileID: 7703659903384602151, guid: abae66817d2b6a18fa4491b280c307ea, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1a5545254a9a23b4591017a1bb74ed0d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
