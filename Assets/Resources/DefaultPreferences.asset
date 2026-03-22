@@ -17,8 +17,9 @@ MonoBehaviour:
   InteractionDistance: 1
   DoorSpeed: 2.4
   CrouchHeight: 0.82
-  FloorMoveAmount: 3
-  StartFloor: 21
+  FloorMoveAmountMin: 3
+  FloorMoveAmountMax: 6
+  StartFloor: 42
   ElevatorMoveSpeed: 2.7
   ElevatorFallInitialSpeed: 0.6
   ElevatorFallElevatorOpenTime: 2.7

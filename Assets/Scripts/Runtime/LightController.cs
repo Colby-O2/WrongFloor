@@ -1,4 +1,5 @@
 using PlazmaGames.Core;
+using System;
 using UnityEngine;
 using WrongFloor.MonoSystems;
 
@@ -19,6 +20,8 @@ namespace WrongFloor
         private float _orignalIntensity;
         private Color _orignalColor;
 
+        public bool IsOn = true;
+
         private void OnEnable()
         {
             GameManager.GetMonoSystem<ILightMonoSystem>().Subscribe(this, _lightType);
@@ -38,12 +41,14 @@ namespace WrongFloor
 
         public void SetColor(Color color)
         {
+            _mr.materials[_lightMaterialIndex].SetColor("_BaseColor", color);
             _onColor = color;
             _light.color = color;
         }
 
         public void RevertColor()
         {
+            _mr.materials[_lightMaterialIndex].SetColor("_BaseColor", _orignalColor);
             _onColor = _orignalColor;
             _light.color = _orignalColor;
         }
@@ -58,19 +63,45 @@ namespace WrongFloor
             _light.intensity = _orignalIntensity;
         }
 
+        private void SetKeyWord<T>(Material material, string parameterBaseName, T selectedKeyword) where T : Enum
+        {
+            var allKeywords = Enum.GetValues(typeof(T));
+            foreach (T keyword in allKeywords)
+            {
+                var keywordText = $"{parameterBaseName}_{keyword.ToString().ToUpper()}";
+
+                if (keyword.Equals(selectedKeyword))
+                    material.EnableKeyword(keywordText);
+                else
+                    material.DisableKeyword(keywordText);
+            }
+        }
+
         public void TurnOn()
         {
+            IsOn = true;
             _mr.materials[_lightMaterialIndex].SetColor("_BaseColor", _onColor);
+            SetKeyWord<LightingMethods>(_mr.materials[_lightMaterialIndex], "_LIGHTINGMETHOD", LightingMethods.Unlit);
             _light.gameObject.SetActive(true);
             _light.color = _onColor;
             _as.Play();
         }
 
-        public void TurnOff()
+        public void TurnOff(bool isOn = false)
         {
-            _mr.materials[_lightMaterialIndex].SetColor("_BaseColor", _offColor);
+            IsOn = isOn;
+            _mr.materials[_lightMaterialIndex].SetColor("_BaseColor", Color.white);
+            SetKeyWord<LightingMethods>(_mr.materials[_lightMaterialIndex], "_LIGHTINGMETHOD", LightingMethods.Texel_Lit);
             _light.gameObject.SetActive(false);
             _as.Stop();
+        }
+
+        private enum LightingMethods
+        {
+            Unlit,
+            Lit,
+            Texel_Lit,
+            Vertex_Lit
         }
     }
 }

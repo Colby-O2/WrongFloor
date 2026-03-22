@@ -31,7 +31,9 @@ namespace WrongFloor
                 PSXEffectSettings psxSettings = _visualMS.GetPSXSettings();
                 psxSettings.EnableFog.value = false; ;
                 _lightMS.SetColor(null, LightState.Emergency);
+                _lightMS.SetIntensity(null, LightState.Emergency);
                 WFGameManager.IsPaused = false;
+                GameManager.GetMonoSystem<IGameLogicMonoSystem>().TriggerEvent("Start");
                 GameManager.GetMonoSystem<IUIMonoSystem>().Show<GameView>();
             });
         }
@@ -43,7 +45,7 @@ namespace WrongFloor
 
         private void Quit()
         {
-            Application.Quit();
+            WFGameManager.QuitGame();
         }
 
         public override void Show()
@@ -57,7 +59,9 @@ namespace WrongFloor
             PSXEffectSettings psxSettings = _visualMS.GetPSXSettings();
             psxSettings.EnableFog.value = true;
 
+            _lightMS.Toggle(LightState.Emergency);
             _lightMS.SetColor(Color.red, LightState.Emergency);
+            _lightMS.SetIntensity(1f, LightState.Emergency);
         }
 
         public override void Init()

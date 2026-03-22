@@ -24,7 +24,7 @@ namespace WrongFloor
 
         private void Quit()
         {
-            Application.Quit();
+            WFGameManager.QuitGame();
         }
 
         public override void Show()

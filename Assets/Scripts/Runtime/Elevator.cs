@@ -48,6 +48,11 @@ namespace WrongFloor
             _floorNumberText.text = _floor.ToString();
         }
 
+        public void SetTarget(int floorTarget)
+        {
+            _floorTarget = floorTarget;
+        }
+
         public void MoveToWrongPosition(bool bringPlayer = false)
         {
             float diff = _wrongYHeight - transform.position.y;
@@ -83,14 +88,14 @@ namespace WrongFloor
             return _doorPromise;
         }
 
-        public Promise MoveDown()
+        public Promise MoveDown(bool autoSetTarget = true)
         {
             if (_movePromise != null) return _movePromise;
             float vol = GameManager.GetMonoSystem<IAudioMonoSystem>().GetOverallVolume();
             _mainSource.volume = vol;
             _mainSource.Play();
             _moveStopTime = 0;
-            _floorTarget = _floor - WFGameManager.Preferences.FloorMoveAmount;
+            if (autoSetTarget) _floorTarget = _floor - Random.Range(WFGameManager.Preferences.FloorMoveAmountMin, WFGameManager.Preferences.FloorMoveAmountMax + 1);
             _floorMoveTick = 0;
             _movingFloor = true;
             _movePromise = new();
@@ -116,6 +121,18 @@ namespace WrongFloor
 
         private void Update()
         {
+            if (WFGameManager.IsPaused)
+            {
+                _mainSource.Pause();
+                _stopSource.Pause();
+                return;
+            }
+            else
+            {
+                if (!_mainSource.isPlaying) _mainSource.UnPause();
+                if (!_stopSource.isPlaying) _stopSource.UnPause();
+            }
+
             if (_falling)
             {
                 _fallT += Time.deltaTime;
@@ -140,7 +157,7 @@ namespace WrongFloor
                 {
                     Debug.Log("MAX SPEED");
                 }
-                
+
                 transform.Translate(Vector3.down * (speed * Time.deltaTime));
                 WFGameManager.Player.MoveToY(transform.position.y + t * WFGameManager.Preferences.ElevatorFallFloatHeight);
 
@@ -148,7 +165,7 @@ namespace WrongFloor
                 {
                     WFGameManager.Player.LockJustMove = true;
                 }
-                
+
                 if (_fallT > 21.5)
                 {
                     GameManager.GetMonoSystem<IVisualEffectMonoSystem>().FadeOut(0);

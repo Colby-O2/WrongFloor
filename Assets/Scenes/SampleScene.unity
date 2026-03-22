@@ -432,6 +432,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 1.74
       objectReference: {fileID: 0}
+    - target: {fileID: 7100978549204787335, guid: abae66817d2b6a18fa4491b280c307ea, type: 3}
+      propertyPath: m_TagString
+      value: ElevatorPanel
+      objectReference: {fileID: 0}
     - target: {fileID: 7224247540355826223, guid: abae66817d2b6a18fa4491b280c307ea, type: 3}
       propertyPath: m_Name
       value: Elevator
@@ -750,18 +754,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1750042527}
     m_Modifications:
     - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.25
       objectReference: {fileID: 0}
@@ -804,14 +796,6 @@ PrefabInstance:
     - target: {fileID: 4487680960193991234, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_Name
       value: EmergencyLight (12)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Range
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Intensity
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3100,18 +3084,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1750042527}
     m_Modifications:
     - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.25
       objectReference: {fileID: 0}
@@ -3154,14 +3126,6 @@ PrefabInstance:
     - target: {fileID: 4487680960193991234, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_Name
       value: EmergencyLight (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Range
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Intensity
-      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3423,18 +3387,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1750042527}
     m_Modifications:
     - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.25
       objectReference: {fileID: 0}
@@ -3477,14 +3429,6 @@ PrefabInstance:
     - target: {fileID: 4487680960193991234, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_Name
       value: EmergencyLight (18)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Range
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Intensity
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4269,6 +4213,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ControlPannel (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6400324142386249457, guid: 40e8030e3dbade44f887f9de45762e82, type: 3}
+      propertyPath: m_TagString
+      value: ControlPanel
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4543,18 +4491,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1750042527}
     m_Modifications:
     - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.25
       objectReference: {fileID: 0}
@@ -4597,14 +4533,6 @@ PrefabInstance:
     - target: {fileID: 4487680960193991234, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_Name
       value: EmergencyLight (10)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Range
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Intensity
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4853,18 +4781,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1750042527}
     m_Modifications:
     - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.25
       objectReference: {fileID: 0}
@@ -4907,14 +4823,6 @@ PrefabInstance:
     - target: {fileID: 4487680960193991234, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_Name
       value: EmergencyLight (14)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Range
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Intensity
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6115,18 +6023,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1750042527}
     m_Modifications:
     - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.25
       objectReference: {fileID: 0}
@@ -6169,14 +6065,6 @@ PrefabInstance:
     - target: {fileID: 4487680960193991234, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_Name
       value: EmergencyLight (24)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Range
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Intensity
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7588,18 +7476,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1750042527}
     m_Modifications:
     - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.25
       objectReference: {fileID: 0}
@@ -7642,14 +7518,6 @@ PrefabInstance:
     - target: {fileID: 4487680960193991234, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_Name
       value: EmergencyLight (22)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Range
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Intensity
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8966,7 +8834,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4734786191775915783, guid: fa5282bc99d65554fb746849526f7bae, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1712073592}
   m_SourcePrefab: {fileID: 100100000, guid: fa5282bc99d65554fb746849526f7bae, type: 3}
 --- !u!4 &1183479788 stripped
 Transform:
@@ -9161,6 +9032,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrouchArea
       objectReference: {fileID: 0}
+    - target: {fileID: 799688563905015149, guid: d80b2f79b7f17d35ba95b30e828e0ec1, type: 3}
+      propertyPath: m_TagString
+      value: ElevatorDoor
+      objectReference: {fileID: 0}
     - target: {fileID: 7241906546761617920, guid: d80b2f79b7f17d35ba95b30e828e0ec1, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
@@ -9202,18 +9077,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1750042527}
     m_Modifications:
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.25
@@ -9257,14 +9120,6 @@ PrefabInstance:
     - target: {fileID: 4487680960193991234, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_Name
       value: EmergencyLight (20)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Range
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Intensity
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9351,18 +9206,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1750042527}
     m_Modifications:
     - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.25
       objectReference: {fileID: 0}
@@ -9405,14 +9248,6 @@ PrefabInstance:
     - target: {fileID: 4487680960193991234, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_Name
       value: EmergencyLight (8)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Range
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Intensity
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10807,7 +10642,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1399200997
 Transform:
   m_ObjectHideFlags: 0
@@ -11847,18 +11682,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1750042527}
     m_Modifications:
     - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.25
       objectReference: {fileID: 0}
@@ -11901,14 +11724,6 @@ PrefabInstance:
     - target: {fileID: 4487680960193991234, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_Name
       value: EmergencyLight (16)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Range
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Intensity
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12987,6 +12802,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 117462bb7dcb0734aa393962d414af25, type: 3}
+--- !u!1 &1608753140 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4734786191775915783, guid: fa5282bc99d65554fb746849526f7bae, type: 3}
+  m_PrefabInstance: {fileID: 1163757768}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1616857733
 GameObject:
   m_ObjectHideFlags: 0
@@ -13583,6 +13403,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5403904315449017789, guid: fa5282bc99d65554fb746849526f7bae, type: 3}
   m_PrefabInstance: {fileID: 1163757768}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1712073591 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3702712161687688997, guid: fa5282bc99d65554fb746849526f7bae, type: 3}
+  m_PrefabInstance: {fileID: 1163757768}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608753140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad5d75216f82e54f99c2cac15cdad14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WrongFloor.LightController
+--- !u!114 &1712073592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608753140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a5dd1bab733ca54d8ae2de0b044308a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WrongFloor.LightFlicker
+  _lc: {fileID: 1712073591}
+  _flickerInterval: {x: 0.5, y: 1}
+  _flickerChance: 0.884
+  _flickerDuration: {x: 0, y: 1}
+  _glitchChance: 0
+  _glitchDuration: {x: 1, y: 3}
+  _isOn: 1
 --- !u!4 &1721191221 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 512900969824513569, guid: 183550cf1801b604aa990d6419ca4ef6, type: 3}
@@ -15197,18 +15047,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1750042527}
     m_Modifications:
     - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.25
       objectReference: {fileID: 0}
@@ -15251,14 +15089,6 @@ PrefabInstance:
     - target: {fileID: 4487680960193991234, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_Name
       value: EmergencyLight (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Range
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Intensity
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15341,18 +15171,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1750042527}
     m_Modifications:
     - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.25
       objectReference: {fileID: 0}
@@ -15395,14 +15213,6 @@ PrefabInstance:
     - target: {fileID: 4487680960193991234, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_Name
       value: EmergencyLight (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Range
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Intensity
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15830,18 +15640,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1750042527}
     m_Modifications:
     - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.25
       objectReference: {fileID: 0}
@@ -15884,14 +15682,6 @@ PrefabInstance:
     - target: {fileID: 4487680960193991234, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_Name
       value: EmergencyLight (26)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Range
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Intensity
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20473,6 +20263,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2592787976958716340, guid: 5aea3232f96d5a7439c142a7a607d973, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592787976958716340, guid: 5aea3232f96d5a7439c142a7a607d973, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592787976958716340, guid: 5aea3232f96d5a7439c142a7a607d973, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: f4cd1e10c5700e64db878ecfbf4256dd, type: 3}
     - target: {fileID: 3891029036176779614, guid: 5aea3232f96d5a7439c142a7a607d973, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -30322,18 +30124,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1750042527}
     m_Modifications:
     - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2020396291457640419, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.25
       objectReference: {fileID: 0}
@@ -30376,14 +30166,6 @@ PrefabInstance:
     - target: {fileID: 4487680960193991234, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
       propertyPath: m_Name
       value: EmergencyLight
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Range
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6055608637024636126, guid: 1a2d9c8bbb8c8714fb72d29abbe0ad3c, type: 3}
-      propertyPath: m_Intensity
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

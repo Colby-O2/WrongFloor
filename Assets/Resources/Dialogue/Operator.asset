@@ -1,0 +1,183 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dde6bf8a896c98c48b27db112dac91a0, type: 3}
+  m_Name: Operator
+  m_EditorClassIdentifier: DialogueGraph::DialogueGraph.Data.DialogueGraphSO
+  id: -1
+  includeInDatabase: 1
+  Name: Operator
+  Nodes:
+  - Guid: 39481013-a47a-4b90-8cc4-df766dfaaaa2
+    ActorName: Operator
+    GroupName: 
+    Type: 1
+    Text: "Listen carefully... there should be a maintenance corridor just outside.
+      I can unlock the doors from here, but it won\u2019t fix the lift."
+    EventID: 
+    position: {x: 716, y: -8}
+    PropertyType: 
+    PropertyBooleanValue: 0
+    PropertyIntValue: 0
+    PropertyName: 
+    IncrementAmount: 0
+    ComparisonType: 0
+    ComparsionCondition: 0
+    Choices:
+    - Text: 
+      Next: 5d27cb21-348a-49a7-ab70-dd50bbcc24ea
+  - Guid: 5d27cb21-348a-49a7-ab70-dd50bbcc24ea
+    ActorName: Operator
+    GroupName: 
+    Type: 1
+    Text: "You\u2019ll need to step out, go down the hallway, and find a wall switch.
+      Old system. Manual reset"
+    EventID: 
+    position: {x: 1137, y: 0}
+    PropertyType: 
+    PropertyBooleanValue: 0
+    PropertyIntValue: 0
+    PropertyName: 
+    IncrementAmount: 0
+    ComparisonType: 0
+    ComparsionCondition: 0
+    Choices:
+    - Text: 
+      Next: 9096a0bd-95fe-4b15-a2e5-b90e067a4aa7
+  - Guid: 00f79e56-e4b3-4350-bc90-05913ee8a963
+    ActorName: 
+    GroupName: 
+    Type: 0
+    Text: 
+    EventID: 
+    position: {x: -406, y: 10}
+    PropertyType: 
+    PropertyBooleanValue: 0
+    PropertyIntValue: 0
+    PropertyName: 
+    IncrementAmount: 0
+    ComparisonType: 0
+    ComparsionCondition: 0
+    Choices:
+    - Text: 
+      Next: 5b968f74-16ed-41eb-9c01-4197cbd5c288
+  - Guid: 5b968f74-16ed-41eb-9c01-4197cbd5c288
+    ActorName: 
+    GroupName: 
+    Type: 6
+    Text: 
+    EventID: 
+    position: {x: -96, y: 28}
+    PropertyType: Int
+    PropertyBooleanValue: 0
+    PropertyIntValue: 0
+    PropertyName: Count
+    IncrementAmount: 0
+    ComparisonType: 0
+    ComparsionCondition: 0
+    Choices:
+    - Text: 
+      Next: 8e4a8e18-59ab-429d-ad99-0953945335b6
+    - Text: 
+      Next: ae064f82-889d-4373-96a2-78a39f9d09b5
+  - Guid: ae064f82-889d-4373-96a2-78a39f9d09b5
+    ActorName: Operator
+    GroupName: 
+    Type: 1
+    Text: "Hello? Yeah, I see you. Elevator\u2019s stalled between floors\u2026 not
+      unusual."
+    EventID: 
+    position: {x: 298, y: -7}
+    PropertyType: 
+    PropertyBooleanValue: 0
+    PropertyIntValue: 0
+    PropertyName: 
+    IncrementAmount: 0
+    ComparisonType: 0
+    ComparsionCondition: 0
+    Choices:
+    - Text: 
+      Next: 39481013-a47a-4b90-8cc4-df766dfaaaa2
+  - Guid: 9096a0bd-95fe-4b15-a2e5-b90e067a4aa7
+    ActorName: Operator
+    GroupName: 
+    Type: 1
+    Text: "It\u2019ll be at the far end. You\u2019ll know it when you see it, big
+      lever, probably humming."
+    EventID: 
+    position: {x: 1548, y: -2}
+    PropertyType: 
+    PropertyBooleanValue: 0
+    PropertyIntValue: 0
+    PropertyName: 
+    IncrementAmount: 0
+    ComparisonType: 0
+    ComparsionCondition: 0
+    Choices:
+    - Text: 
+      Next: b14e91d8-b930-4e16-acfb-a6d738330416
+  - Guid: b14e91d8-b930-4e16-acfb-a6d738330416
+    ActorName: Operator
+    GroupName: 
+    Type: 1
+    Text: "Flip the switch, and I\u2019ll bring the elevator back online."
+    EventID: 
+    position: {x: 1949, y: 0}
+    PropertyType: 
+    PropertyBooleanValue: 0
+    PropertyIntValue: 0
+    PropertyName: 
+    IncrementAmount: 0
+    ComparisonType: 0
+    ComparsionCondition: 0
+    Choices:
+    - Text: 
+      Next: 616bb319-f15c-46b8-95ae-ca958d001fe6
+  - Guid: 616bb319-f15c-46b8-95ae-ca958d001fe6
+    ActorName: 
+    GroupName: 
+    Type: 5
+    Text: 
+    EventID: 
+    position: {x: 2337, y: -3}
+    PropertyType: Int
+    PropertyBooleanValue: 0
+    PropertyIntValue: 0
+    PropertyName: Count
+    IncrementAmount: 1
+    ComparisonType: 0
+    ComparsionCondition: 0
+    Choices:
+    - Text: 
+      Next: 
+  - Guid: 8e4a8e18-59ab-429d-ad99-0953945335b6
+    ActorName: Operator
+    GroupName: 
+    Type: 1
+    Text: Yo
+    EventID: 
+    position: {x: 296, y: -260}
+    PropertyType: 
+    PropertyBooleanValue: 0
+    PropertyIntValue: 0
+    PropertyName: 
+    IncrementAmount: 0
+    ComparisonType: 0
+    ComparsionCondition: 0
+    Choices:
+    - Text: 
+      Next: 
+  Groups: []
+  Properties:
+  - Name: Count
+    Type: Int
+    BooleanValue: 0
+    IntValue: 0

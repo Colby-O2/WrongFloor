@@ -1,7 +1,12 @@
+using PlazmaGames.Core;
+using PlazmaGames.UI;
 using System;
 using System.Collections.Generic;
-using PlazmaGames.Core;
+using Unity.ProjectAuditor.Editor;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
+using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 using WrongFloor.MonoSystems;
 
 namespace WrongFloor
@@ -18,59 +23,242 @@ namespace WrongFloor
 
         private class Refs
         {
-            public Elevator elevator;
+            public Elevator Elevator;
+            public Button ControlPanel;
+            public Button ElevatorPanel;
+            public EventRange ElevatorDoor;
         }
-        
+
+        private void OnEnable()
+        {
+            SceneManager.sceneLoaded += OnSceneLoad;
+            SceneManager.sceneUnloaded += OnSceneUnload;
+        }
+
+        private void OnDisable()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoad;
+            SceneManager.sceneUnloaded -= OnSceneUnload;
+        }
+
         private void Start()
         {
             _dialogueMs = GameManager.GetMonoSystem<IDialogueMonoSystem>();
-            _refs.elevator = GameObject.FindAnyObjectByType<Elevator>();
         }
 
         private void Update()
         {
-            if (!_started)
-            {
-                _started = true;
-                TriggerEvent("Start");
-            }
             _scheduler.Tick(Time.deltaTime);
         }
-        
-        
+
+        private void OnSceneLoad(Scene scene, LoadSceneMode mode)
+        {
+            _refs.Elevator = GameObject.FindAnyObjectByType<Elevator>();
+            _refs.ControlPanel = GameObject.FindGameObjectWithTag("ControlPanel").GetComponent<Button>();
+            _refs.ElevatorPanel = GameObject.FindGameObjectWithTag("ElevatorPanel").GetComponent<Button>();
+            _refs.ElevatorDoor = GameObject.FindGameObjectWithTag("ElevatorDoor").GetComponent<EventRange>();
+        }
+
+        private void OnSceneUnload(Scene scene)
+        {
+
+        }
+
         public void TriggerEvent(string eventName)
         {
             Debug.Log("Event Triggered: " + eventName);
             switch (eventName)
             {
                 case "Start":
-                    _scheduler.When(() => IsTriggered("Button"))
-                        .Then(_ => _dialogueMs.StartDialoguePromise("Test"))
-                        .Then(_ => _refs.elevator.MoveDown())
-                        .Then(_ => _dialogueMs.StartDialoguePromise("Test"))
-                        .Then(_ => _refs.elevator.OpenDoors())
+
+                    _refs.ElevatorPanel.Disable();
+                    _refs.ControlPanel.Disable();
+                    _refs.ElevatorDoor.Enabled = false;
+
+                    GameManager.GetMonoSystem<ILightMonoSystem>().Toggle(LightState.Emergency);
+
+                    _refs.Elevator.MoveDown().Then(_ =>
+                    {
+                        _refs.ElevatorPanel.Enable();
+                        _refs.ElevatorPanel.UpdateHint("Call For Help");
+                        // Loop 1
+                        _scheduler.When(() => IsTriggered("Button"))
+                        .Then(_ => _dialogueMs.StartDialoguePromise("Operator"))
+                        .Then(_ => _refs.Elevator.OpenDoors())
                         .Then(_ =>
                         {
-                            Debug.Log("WOW :)");
+                            _refs.ElevatorDoor.Enabled = true;
+                            _refs.ControlPanel.Enable();
                         })
                         .Then(_ => _scheduler.When(() => IsTriggered("Fix")))
                         .Then(_ =>
                         {
-                            _refs.elevator.MoveToCorrectPosition();
-                            Debug.Log("FIX :(");
+                            GameManager.GetMonoSystem<ILightMonoSystem>().Toggle(LightState.Nomral);
+                            _refs.ElevatorPanel.UpdateHint("Go To Lobby");
+                            _refs.ElevatorPanel.Enable();
+                            _refs.Elevator.MoveToCorrectPosition();
                         })
                         .Then(_ => _scheduler.When(() => IsTriggered("Button")))
-                        .Then(_ => _refs.elevator.CloseDoors())
-                        .Then(_ => _refs.elevator.MoveDown())
                         .Then(_ =>
                         {
-                            _refs.elevator.MoveToWrongPosition(true);
+                            _refs.ElevatorDoor.Enabled = false;
                         })
-                        .Then(_ => _refs.elevator.OpenDoors())
-                        .Then(_ => _scheduler.Wait(3))
-                        .Then(_ => _refs.elevator.CloseDoors())
-                        .Then(_ => _refs.elevator.FallElevator())
-                        ;
+                        .Then(_ => _refs.Elevator.CloseDoors())
+                        .Then(_ =>
+                        {
+                            GameManager.GetMonoSystem<ILightMonoSystem>().Toggle(LightState.Emergency);
+                        })
+                        .Then(_ => _refs.Elevator.MoveDown())
+                        .Then(_ =>
+                        {
+                            _refs.Elevator.MoveToWrongPosition(true);
+                            _refs.ElevatorPanel.Enable();
+                            _refs.ElevatorPanel.UpdateHint("Call For Help");
+                        })
+                        // Loop 2
+                        .Then(_ => _scheduler.When(() => IsTriggered("Button")))
+                        .Then(_ => _dialogueMs.StartDialoguePromise("Operator"))
+                        .Then(_ => _refs.Elevator.OpenDoors())
+                        .Then(_ =>
+                        {
+                            _refs.ElevatorDoor.Enabled = true;
+                            _refs.ControlPanel.Enable();
+                        })
+                        .Then(_ => _scheduler.When(() => IsTriggered("Fix")))
+                        .Then(_ =>
+                        {
+                            GameManager.GetMonoSystem<ILightMonoSystem>().Toggle(LightState.Nomral);
+                            _refs.ElevatorPanel.UpdateHint("Go To Lobby");
+                            _refs.ElevatorPanel.Enable();
+                            _refs.Elevator.MoveToCorrectPosition();
+                        })
+                        .Then(_ => _scheduler.When(() => IsTriggered("Button")))
+                        .Then(_ =>
+                        {
+                            _refs.ElevatorDoor.Enabled = false;
+                        })
+                        .Then(_ => _refs.Elevator.CloseDoors())
+                        .Then(_ =>
+                        {
+                            GameManager.GetMonoSystem<ILightMonoSystem>().Toggle(LightState.Emergency);
+                        })
+                        .Then(_ => _refs.Elevator.MoveDown())
+                        .Then(_ =>
+                        {
+                            _refs.Elevator.MoveToWrongPosition(true);
+                            _refs.ElevatorPanel.Enable();
+                            _refs.ElevatorPanel.UpdateHint("Call For Help");
+                        })
+                        // Loop 3
+                        .Then(_ => _scheduler.When(() => IsTriggered("Button")))
+                        .Then(_ => _dialogueMs.StartDialoguePromise("Operator"))
+                        .Then(_ => _refs.Elevator.OpenDoors())
+                        .Then(_ =>
+                        {
+                            _refs.ElevatorDoor.Enabled = true;
+                            _refs.ControlPanel.Enable();
+                        })
+                        .Then(_ => _scheduler.When(() => IsTriggered("Fix")))
+                        .Then(_ =>
+                        {
+                            GameManager.GetMonoSystem<ILightMonoSystem>().Toggle(LightState.Nomral);
+                            _refs.ElevatorPanel.UpdateHint("Go To Lobby");
+                            _refs.ElevatorPanel.Enable();
+                            _refs.Elevator.MoveToCorrectPosition();
+                        })
+                        .Then(_ => _scheduler.When(() => IsTriggered("Button")))
+                        .Then(_ =>
+                        {
+                            _refs.ElevatorDoor.Enabled = false;
+                        })
+                        .Then(_ => _refs.Elevator.CloseDoors())
+                        .Then(_ =>
+                        {
+                            GameManager.GetMonoSystem<ILightMonoSystem>().Toggle(LightState.Emergency);
+                        })
+                        .Then(_ => _refs.Elevator.MoveDown())
+                        .Then(_ =>
+                        {
+                            _refs.Elevator.MoveToWrongPosition(true);
+                            _refs.ElevatorPanel.Enable();
+                            _refs.ElevatorPanel.UpdateHint("Call For Help");
+                        })
+                        // Loop 4
+                        .Then(_ => _scheduler.When(() => IsTriggered("Button")))
+                        .Then(_ => _dialogueMs.StartDialoguePromise("Operator"))
+                        .Then(_ => _refs.Elevator.OpenDoors())
+                        .Then(_ =>
+                        {
+                            _refs.ElevatorDoor.Enabled = true;
+                            _refs.ControlPanel.Enable();
+                        })
+                        .Then(_ => _scheduler.When(() => IsTriggered("Fix")))
+                        .Then(_ =>
+                        {
+                            GameManager.GetMonoSystem<ILightMonoSystem>().Toggle(LightState.Nomral);
+                            _refs.ElevatorPanel.UpdateHint("Go To Lobby");
+                            _refs.ElevatorPanel.Enable();
+                            _refs.Elevator.MoveToCorrectPosition();
+                        })
+                        .Then(_ => _scheduler.When(() => IsTriggered("Button")))
+                        .Then(_ =>
+                        {
+                            _refs.ElevatorDoor.Enabled = false;
+                        })
+                        .Then(_ => _refs.Elevator.CloseDoors())
+                        .Then(_ =>
+                        {
+                            GameManager.GetMonoSystem<ILightMonoSystem>().Toggle(LightState.Emergency);
+                        })
+                        .Then(_ => _refs.Elevator.MoveDown())
+                        .Then(_ =>
+                        {
+                            _refs.Elevator.MoveToWrongPosition(true);
+                            _refs.ElevatorPanel.Enable();
+                            _refs.ElevatorPanel.UpdateHint("Call For Help");
+                        })
+                        // Loop 5
+                        .Then(_ => _scheduler.When(() => IsTriggered("Button")))
+                        .Then(_ => _dialogueMs.StartDialoguePromise("Operator"))
+                        .Then(_ => _refs.Elevator.OpenDoors())
+                        .Then(_ =>
+                        {
+                            _refs.ElevatorDoor.Enabled = true;
+                            _refs.ControlPanel.Enable();
+                        })
+                        .Then(_ => _scheduler.When(() => IsTriggered("Fix")))
+                        .Then(_ =>
+                        {
+                            GameManager.GetMonoSystem<ILightMonoSystem>().Toggle(LightState.Nomral);
+                            _refs.ElevatorPanel.UpdateHint("Go To Lobby");
+                            _refs.ElevatorPanel.Enable();
+                            _refs.Elevator.MoveToCorrectPosition();
+                        })
+                        .Then(_ => _scheduler.When(() => IsTriggered("Button")))
+                        .Then(_ =>
+                        {
+                            _refs.ElevatorDoor.Enabled = false;
+                        })
+                        .Then(_ => _refs.Elevator.CloseDoors())
+                        .Then(_ => _refs.Elevator.MoveDown())
+                        .Then(_ =>
+                        {
+                            _refs.Elevator.MoveToWrongPosition(true);
+                            _refs.ElevatorPanel.Enable();
+                            _refs.ElevatorPanel.UpdateHint("Call For Help");
+                        })
+                        .Then(_ => _scheduler.When(() => IsTriggered("Button")))
+                        .Then(_ => _dialogueMs.StartDialoguePromise("Operator"))
+                        .Then(_ => _refs.Elevator.OpenDoors(false))
+                        .Then(_ => _refs.Elevator.FallElevator())
+                        .Then(_ => _scheduler.Wait(3f))
+                        .Then(_ =>
+                        {
+                            GameManager.GetMonoSystem<IUIMonoSystem>().Show<MainMenuView>();
+                            GameManager.GetMonoSystem<IVisualEffectMonoSystem>().FadeIn(0f);
+                            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                        });
+                    });
                     break;
                 
                 default:

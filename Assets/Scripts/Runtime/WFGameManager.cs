@@ -37,7 +37,7 @@ namespace WrongFloor
 
         private void Start()
         {
-            Player = GameObject.FindObjectsByType<Player.MovementController>()[0].GetComponent<Player.MovementController>();
+            
         }
 
         private void OnEnable()
@@ -113,7 +113,7 @@ namespace WrongFloor
 
         private void OnSceneLoad(Scene scene, LoadSceneMode mode)
         {
-
+            Player = GameObject.FindObjectsByType<Player.MovementController>()[0].GetComponent<Player.MovementController>();
         }
 
         private void OnSceneUnload(Scene scene)
