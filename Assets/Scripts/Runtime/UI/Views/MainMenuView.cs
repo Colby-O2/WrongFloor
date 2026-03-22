@@ -2,6 +2,7 @@ using ColbyO.VNTG.PSX;
 using PlazmaGames.Core;
 using PlazmaGames.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using WrongFloor.MonoSystems;
 using WrongFloor.UI;
 
@@ -17,8 +18,33 @@ namespace WrongFloor
         [SerializeField] private EventButton _settings;
         [SerializeField] private EventButton _quit;
 
+        public bool HasBeatGame = false;
+
         private IVisualEffectMonoSystem _visualMS;
         private ILightMonoSystem _lightMS;
+
+        private void OnEnable()
+        {
+            SceneManager.sceneLoaded += OnSceneLoad;
+        }
+
+        private void OnDisable()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoad;
+        }
+
+        private void OnSceneLoad(Scene scene, LoadSceneMode mode)
+        {
+            if (HasBeatGame)
+            {
+                _lightMS.Toggle(LightState.Emergency);
+                _lightMS.SetColor(Color.red, LightState.Emergency);
+                _lightMS.SetIntensity(1f, LightState.Emergency);
+
+                PSXEffectSettings psxSettings = _visualMS.GetPSXSettings();
+                psxSettings.EnableFog.value = true;
+            }
+        }
 
         private void Play()
         {
@@ -29,7 +55,7 @@ namespace WrongFloor
                 _mainMenuBackground.SetActive(false);
                 _settingBackdrop.SetActive(true);
                 PSXEffectSettings psxSettings = _visualMS.GetPSXSettings();
-                psxSettings.EnableFog.value = false; ;
+                psxSettings.EnableFog.value = false;
                 _lightMS.SetColor(null, LightState.Emergency);
                 _lightMS.SetIntensity(null, LightState.Emergency);
                 WFGameManager.IsPaused = false;
@@ -58,10 +84,6 @@ namespace WrongFloor
 
             PSXEffectSettings psxSettings = _visualMS.GetPSXSettings();
             psxSettings.EnableFog.value = true;
-
-            _lightMS.Toggle(LightState.Emergency);
-            _lightMS.SetColor(Color.red, LightState.Emergency);
-            _lightMS.SetIntensity(1f, LightState.Emergency);
         }
 
         public override void Init()

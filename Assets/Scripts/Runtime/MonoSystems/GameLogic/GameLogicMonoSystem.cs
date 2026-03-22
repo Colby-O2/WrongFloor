@@ -30,6 +30,7 @@ namespace WrongFloor
             public static GameObject Jumpscare;
             public static AudioSource Crying1;
             public static AudioSource Crying2;
+            public static PanelController ControlPanelController;
         }
 
         private void OnEnable()
@@ -61,6 +62,7 @@ namespace WrongFloor
             Refs.ElevatorDoor = GameObject.FindGameObjectWithTag("ElevatorDoor").GetComponent<EventRange>();
 
             Refs.ControlPanel = GameObject.FindGameObjectWithTag("ControlPanel").GetComponent<Button>();
+            Refs.ControlPanelController = Refs.ControlPanel.GetComponent<PanelController>();
 
             Refs.SoundScape = FindAnyObjectByType<SoundScapeManager>();
 
@@ -107,7 +109,7 @@ namespace WrongFloor
                         Refs.ElevatorPanel.UpdateHint("Call For Help");
 
                         GameManager.GetMonoSystem<ILightMonoSystem>().Toggle(LightState.Emergency);
-                        GameManager.GetMonoSystem<ILightMonoSystem>().SetIntensity(1.0f, LightState.Emergency);
+                        GameManager.GetMonoSystem<ILightMonoSystem>().SetIntensity(3.0f, LightState.Emergency);
 
                         // Loop 1
                         _scheduler.When(() => IsTriggered("Button"))
@@ -136,7 +138,7 @@ namespace WrongFloor
                         .Then(_ =>
                         {
                             GameManager.GetMonoSystem<ILightMonoSystem>().Toggle(LightState.Emergency);
-                            GameManager.GetMonoSystem<ILightMonoSystem>().SetIntensity(0.7f, LightState.Emergency);
+                            GameManager.GetMonoSystem<ILightMonoSystem>().SetIntensity(2f, LightState.Emergency);
 
                             Refs.Elevator.MoveToWrongPosition(true);
                             Refs.ElevatorPanel.Enable();
@@ -171,7 +173,7 @@ namespace WrongFloor
                         .Then(_ =>
                         {
                             GameManager.GetMonoSystem<ILightMonoSystem>().Toggle(LightState.Emergency);
-                            GameManager.GetMonoSystem<ILightMonoSystem>().SetIntensity(0.4f, LightState.Emergency);
+                            GameManager.GetMonoSystem<ILightMonoSystem>().SetIntensity(1f, LightState.Emergency);
 
                             Refs.Elevator.MoveToWrongPosition(true);
                             Refs.ElevatorPanel.Enable();
@@ -190,6 +192,7 @@ namespace WrongFloor
                         .Then(_ => _scheduler.When(() => IsTriggered("Fix")))
                         .Then(_ =>
                         {
+                            Refs.ControlPanelController.PlayWarning();
                             Refs.SoundScape.StopWind();
                             GameManager.GetMonoSystem<ILightMonoSystem>().Toggle(LightState.Nomral);
                             Refs.LightFlicker2.Disable = false;
@@ -281,6 +284,7 @@ namespace WrongFloor
                         .Then(_ => _scheduler.When(() => IsTriggered("Fix")))
                         .Then(_ =>
                         {
+                            Refs.ControlPanelController.PlayCrash();
                             GameManager.GetMonoSystem<ILightMonoSystem>().Toggle(LightState.Off);
                             Refs.ElevatorPanel.UpdateHint("Go To Lobby");
                             Refs.ElevatorPanel.Enable();
@@ -317,6 +321,7 @@ namespace WrongFloor
                         .Then(_ =>
                         {
                             GameManager.GetMonoSystem<IUIMonoSystem>().Show<MainMenuView>();
+                            GameManager.GetMonoSystem<IUIMonoSystem>().GetView<MainMenuView>().HasBeatGame = true;
                             GameManager.GetMonoSystem<IVisualEffectMonoSystem>().FadeIn(0f);
                             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                         });

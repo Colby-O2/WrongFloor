@@ -176,11 +176,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WrongFloor.LightController
   _lightType: 1
   _lightMaterialIndex: 1
-  _onColor: {r: 1, g: 1, b: 1, a: 0}
+  _onColor: {r: 0.59607846, g: 0.5254902, b: 0, a: 0}
   _offColor: {r: 0, g: 0, b: 0, a: 0}
   _mr: {fileID: 6579087224227275375}
   _light: {fileID: 6055608637024636126}
   _as: {fileID: 7443788976566674482}
+  ForceOnWhenDark: 0
   IsOn: 1
 --- !u!82 &7443788976566674482
 AudioSource:
