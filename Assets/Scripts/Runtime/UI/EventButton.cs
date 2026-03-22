@@ -88,7 +88,7 @@ namespace WrongFloor.UI
         {
             if (IsDisabled) return;
 
-            if (_playSound) GameManager.GetMonoSystem<IAudioMonoSystem>().PlayAudio("UIClick", PlazmaGames.Audio.AudioType.Sfx, false, true);
+            if (_playSound) GameManager.GetMonoSystem<IAudioMonoSystem>().PlayAudio("UIClick", PlazmaGames.Audio.AudioType.Ambient, false, true);
             IsPointerUsed = true;
             base.OnPointerDown(eventData);
             EventSystem.current.SetSelectedGameObject(null);

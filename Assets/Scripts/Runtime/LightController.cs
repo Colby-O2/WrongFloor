@@ -38,6 +38,7 @@ namespace WrongFloor
         {
             _orignalIntensity = _light.intensity;
             _orignalColor = _onColor;
+            TurnAudioOff();
             TurnOn();
         }
 
@@ -96,6 +97,16 @@ namespace WrongFloor
             SetKeyWord<LightingMethods>(_mr.materials[_lightMaterialIndex], "_LIGHTINGMETHOD", LightingMethods.Texel_Lit);
             _light.gameObject.SetActive(false);
             _as.Stop();
+        }
+
+        public void TurnAudioOff()
+        {
+            if (_as && _as.isPlaying) _as.Stop();
+        }
+
+        public void TurnAudioOn()
+        {
+            if (_as && !_as.isPlaying) _as.Play();
         }
 
         private enum LightingMethods

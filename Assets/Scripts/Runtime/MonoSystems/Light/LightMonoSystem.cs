@@ -100,6 +100,20 @@ namespace WrongFloor.MonoSystems
             }
         }
 
+        public void ToggleAudio(bool state)
+        {
+            if (state)
+            {
+                foreach (LightController lc in _normalLights) if (lc) lc.TurnAudioOn();
+                foreach (LightController lc in _emergencyLights) if (lc) lc.TurnAudioOn();
+            }
+            else
+            {
+                foreach (LightController lc in _normalLights) if (lc) lc.TurnAudioOff();
+                foreach (LightController lc in _emergencyLights) if (lc) lc.TurnAudioOff();
+            }
+        }
+
         public void SetColor(Color? color, LightState state)
         {
             switch (state)

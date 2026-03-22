@@ -785,11 +785,11 @@ MonoBehaviour:
   _sfxSound: 1
   _musicSound: 1
   _musicSounds: []
-  _ambientSounds: []
-  _sfxSounds:
+  _ambientSounds:
   - id: 0
     name: UIClick
     audio: {fileID: 8300000, guid: 3325e70f891b12b4dbebee505503ae14, type: 3}
+  _sfxSounds: []
   _musicSource: {fileID: 1850981942650436082}
   _ambientSource: {fileID: 3220907151788759}
   _sfxMainSource: {fileID: 1067258577844713490}

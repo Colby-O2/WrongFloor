@@ -60,6 +60,8 @@ namespace WrongFloor
             }
 
             if (_musicSource && !_musicSource.isPlaying) _musicSource.Play();
+
+            GameManager.GetMonoSystem<ILightMonoSystem>().ToggleAudio(false);
         }
 
         private IEnumerator FadeOutMusic(AudioSource source, float duration)
@@ -88,6 +90,7 @@ namespace WrongFloor
             _visualMS.FadeOut(2f).Then(_ =>
             {
                 _musicSource.Stop();
+                GameManager.GetMonoSystem<ILightMonoSystem>().ToggleAudio(true);
                 _visualMS.FadeIn(5f);
                 _mainMenuBackground.SetActive(false);
                 _mainMenuScene.SetActive(false);

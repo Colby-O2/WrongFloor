@@ -26,7 +26,7 @@ namespace WrongFloor
         public static Preferences Preferences { get => (Instance as WFGameManager)._preferences; }
         [SerializeField] private Preferences _preferences;
 
-        public static bool IsPaused = false;
+        public static bool IsPaused = true;
         public static bool LockMovement = false;
         public static Player.MovementController Player;
 
