@@ -16,6 +16,9 @@ namespace WrongFloor.UI
         [SerializeField] private AudioSource _as;
         [SerializeField] private GameObject _holder;
 
+        [Header("Hint")]
+        [SerializeField] private TMP_Text _hintText;
+
         [Header("Dialogue")]
         [SerializeField] private GameObject _dialogueHolder;
         [SerializeField] private TMP_Text _dialogueAvatarName;
@@ -49,6 +52,8 @@ namespace WrongFloor.UI
             StopCoroutine(_writeRoutine);
             _writeRoutine = null;
         }
+
+        public void SetHint(string text) => _hintText.text = text;
 
         public void SetPassive(bool state) => _passive = state;
 
@@ -150,7 +155,9 @@ namespace WrongFloor.UI
             }
             _dialogueHolder.SetActive(true);
             _dialogueHint.SetActive(false);
+            
             if (!_passive) WFGameManager.LockMovement = true;
+            _hintText.gameObject.SetActive(false);
         }
 
         public void DisplayDialogue(DialogueNodeData dialogue)
@@ -176,6 +183,7 @@ namespace WrongFloor.UI
             _dialogueHint.SetActive(false);
 
             if (!_passive) WFGameManager.LockMovement = _initialInputLockState;
+            _hintText.gameObject.SetActive(true);
         }
 
         public void GoToNext(int choice)
