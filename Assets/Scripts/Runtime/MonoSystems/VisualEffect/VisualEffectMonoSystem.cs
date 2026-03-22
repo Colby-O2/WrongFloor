@@ -1,4 +1,5 @@
 using ColbyO.VNTG.PSX;
+using PlazmaGames.Core;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -8,9 +9,22 @@ namespace WrongFloor.MonoSystems
     {
         private Volume _volume;
 
+        private ScreenFade _screenFade;
+
         private void Start()
         {
             _volume = FindAnyObjectByType<Volume>();
+            _screenFade = FindAnyObjectByType<ScreenFade>();
+        }
+
+        public Promise FadeIn(float duration)
+        {
+            return _screenFade.FadeIn(duration);
+        }
+
+        public Promise FadeOut(float duration)
+        {
+            return _screenFade.FadeOut(duration);
         }
 
         public PSXEffectSettings GetPSXSettings()
