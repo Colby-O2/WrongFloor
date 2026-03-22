@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SilverMat
+  m_Name: ControlPannel
   m_Shader: {fileID: -6465566751694194690, guid: 8b8b697340fa16848ba72c93c8de257b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -66,7 +66,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 2f80ec5b531fdea4b8bb92d0e108903a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 38c018cede4911648b358c3efef130c2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -110,7 +110,7 @@ Material:
     - _CastShadows: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _ColorDepth: 64
+    - _ColorDepth: 32
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
@@ -133,7 +133,7 @@ Material:
     - _ReceiveShadows: 1
     - _ShadowDistCutoff: 100
     - _ShadowOffset: 0.01
-    - _Smoothness: 0.268
+    - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -142,7 +142,7 @@ Material:
     - _TEXTURESAMPLEMODE: 0
     - _TextureResolution: 128
     - _UseColorQuantization: 1
-    - _UseSpecular: 1
+    - _UseSpecular: 0
     - _UseVertexColor: 0
     - _VERTEXJITTERMODE: 1
     - _VertexPrecision: 32
@@ -152,7 +152,7 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _BaseColor: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 1}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Offset: {r: 0, g: 0, b: 0, a: 0}
