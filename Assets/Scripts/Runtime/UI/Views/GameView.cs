@@ -14,6 +14,7 @@ namespace WrongFloor.UI
     public class GameView : View
     {
         [SerializeField] private AudioSource _as;
+        [SerializeField] private AudioSource _staticAS;
         [SerializeField] private GameObject _holder;
 
         [Header("Hint")]
@@ -155,7 +156,9 @@ namespace WrongFloor.UI
             }
             _dialogueHolder.SetActive(true);
             _dialogueHint.SetActive(false);
-            
+
+            if (!_staticAS.isPlaying) _staticAS.Play();
+
             if (!_passive) WFGameManager.LockMovement = true;
             _hintText.gameObject.SetActive(false);
         }
@@ -181,6 +184,8 @@ namespace WrongFloor.UI
             _dialogue.text = string.Empty;
             _dialogueHolder.SetActive(false);
             _dialogueHint.SetActive(false);
+
+            _staticAS.Stop();
 
             if (!_passive) WFGameManager.LockMovement = _initialInputLockState;
             _hintText.gameObject.SetActive(true);

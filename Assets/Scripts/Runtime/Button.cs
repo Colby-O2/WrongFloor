@@ -9,6 +9,9 @@ namespace WrongFloor
 {
     public class Button : MonoBehaviour
     {
+        [SerializeField] private AudioSource _as;
+        [SerializeField] private AudioClip _clip;
+
         [SerializeField] private string _name = "Button";
         [SerializeField] private string _hint = "To Press";
 
@@ -64,6 +67,7 @@ namespace WrongFloor
         {
             if (!_in || _disabled) return;
             Disable();
+            if (_as && _clip) _as.PlayOneShot(_clip);
             GameManager.GetMonoSystem<IGameLogicMonoSystem>().Trigger(_name);
         }
         

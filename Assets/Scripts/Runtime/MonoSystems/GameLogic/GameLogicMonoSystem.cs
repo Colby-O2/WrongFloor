@@ -1,11 +1,8 @@
 using PlazmaGames.Core;
 using PlazmaGames.UI;
-using System;
 using System.Collections.Generic;
 using Unity.ProjectAuditor.Editor;
 using UnityEngine;
-using UnityEngine.Experimental.GlobalIllumination;
-using UnityEngine.SceneManagement;
 using UnityEngine.SceneManagement;
 using WrongFloor.MonoSystems;
 
@@ -27,6 +24,7 @@ namespace WrongFloor
             public Button ControlPanel;
             public Button ElevatorPanel;
             public EventRange ElevatorDoor;
+            public SoundScapeManager SoundScape;
         }
 
         private void OnEnable()
@@ -57,6 +55,7 @@ namespace WrongFloor
             _refs.ControlPanel = GameObject.FindGameObjectWithTag("ControlPanel").GetComponent<Button>();
             _refs.ElevatorPanel = GameObject.FindGameObjectWithTag("ElevatorPanel").GetComponent<Button>();
             _refs.ElevatorDoor = GameObject.FindGameObjectWithTag("ElevatorDoor").GetComponent<EventRange>();
+            _refs.SoundScape = FindAnyObjectByType<SoundScapeManager>();
         }
 
         private void OnSceneUnload(Scene scene)
@@ -74,6 +73,8 @@ namespace WrongFloor
                     _refs.ElevatorPanel.Disable();
                     _refs.ControlPanel.Disable();
                     _refs.ElevatorDoor.Enabled = false;
+
+                    _refs.SoundScape.WindVolume(0.25f);
 
                     GameManager.GetMonoSystem<ILightMonoSystem>().Toggle(LightState.Emergency);
 
@@ -121,6 +122,7 @@ namespace WrongFloor
                         .Then(_ => _refs.Elevator.OpenDoors())
                         .Then(_ =>
                         {
+                            _refs.SoundScape.WindVolume(0.5f);
                             _refs.ElevatorDoor.Enabled = true;
                             _refs.ControlPanel.Enable();
                         })
@@ -155,12 +157,14 @@ namespace WrongFloor
                         .Then(_ => _refs.Elevator.OpenDoors())
                         .Then(_ =>
                         {
+                            _refs.SoundScape.WindVolume(1f);
                             _refs.ElevatorDoor.Enabled = true;
                             _refs.ControlPanel.Enable();
                         })
                         .Then(_ => _scheduler.When(() => IsTriggered("Fix")))
                         .Then(_ =>
                         {
+                            _refs.SoundScape.StopWind();
                             GameManager.GetMonoSystem<ILightMonoSystem>().Toggle(LightState.Nomral);
                             _refs.ElevatorPanel.UpdateHint("Go To Lobby");
                             _refs.ElevatorPanel.Enable();

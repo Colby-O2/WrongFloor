@@ -5,13 +5,13 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using WrongFloor.Utilizes;
 
 namespace WrongFloor.UI
 {
 #if UNITY_EDITOR
     using UnityEditor;
     using UnityEditor.UI;
-    using WrongFloor.Utilizes;
 
     [CustomEditor(typeof(EventButton)), CanEditMultipleObjects]
     public class MenuButtonEditor : ButtonEditor
