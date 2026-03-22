@@ -18,6 +18,7 @@ namespace WrongFloor
         [SerializeField] private AudioSource _mainSource;
         [SerializeField] private AudioSource _stopSource;
         
+        [SerializeField] private GameObject _doorBlock;
         [SerializeField] private Transform _doorL;
         [SerializeField] private Transform _doorR;
 
@@ -47,16 +48,11 @@ namespace WrongFloor
 
         public void MoveToWrongPosition(bool bringPlayer = false)
         {
-            Transform prevParent = null;
-            if (bringPlayer)
-            {
-                prevParent = WFGameManager.Player.transform.parent;
-                WFGameManager.Player.transform.parent = transform;
-            }
+            float diff = _wrongYHeight - transform.position.y;
             transform.position = transform.position.SetY(_wrongYHeight);
             if (bringPlayer)
             {
-                WFGameManager.Player.transform.parent = prevParent;
+                WFGameManager.Player.Move(new Vector3(0, diff, 0));
             }
         }
         
@@ -108,7 +104,9 @@ namespace WrongFloor
             _falling = true;
             _didOpenDoorsOnFall = false;
             _fallT = 0;
+            _doorBlock.SetActive(true);
             WFGameManager.Player.transform.parent = transform;
+            WFGameManager.Player.GravityScale = 0.0f;
             return _movePromise;
         }
 
@@ -136,6 +134,7 @@ namespace WrongFloor
                 }
                 
                 transform.Translate(Vector3.down * (speed * Time.deltaTime));
+                WFGameManager.Player.MoveToY(transform.position.y);
 
                 if (_mainSource.isPlaying == false)
                 {

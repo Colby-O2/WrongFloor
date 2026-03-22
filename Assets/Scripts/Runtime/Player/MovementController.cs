@@ -34,7 +34,8 @@ namespace WrongFloor.Player
         private IInputMonoSystem _input;
 
         private float Speed => _settings.Speed * (_crouched ? _settings.CrouchedMultiplier : 1.0f);
-        private float Gravity => GRAVITY * _settings.GravityMul;
+        public float GravityScale = 1.0f;
+        private float Gravity => GRAVITY * _settings.GravityMul * GravityScale;
 
         private bool _crouched = false;
 
@@ -74,7 +75,7 @@ namespace WrongFloor.Player
         {
             _velocity.y = _state == MovementState.Airborne
                 ? Mathf.MoveTowards(_velocity.y, -_settings.TerminalVelocity, -Gravity * Time.deltaTime)
-                : GROUNDED_VEL;
+                : GROUNDED_VEL * GravityScale;
         }
 
         private void UpdateHorizontalVelocity(float controlMultiplier)
@@ -108,7 +109,7 @@ namespace WrongFloor.Player
             if (_controller.isGrounded)
             {
                 _state = MovementState.Grounded;
-                _velocity.y = GROUNDED_VEL;
+                _velocity.y = GROUNDED_VEL * GravityScale;
             }
         }
 
@@ -121,6 +122,22 @@ namespace WrongFloor.Player
                 case MovementState.Grounded: UpdateGrounded(); break;
                 case MovementState.Airborne: UpdateAirborne(); break;
             }
+        }
+
+        public void Move(Vector3 d)
+        {
+            bool prev = _controller.enabled;
+            _controller.enabled = false;
+            transform.position += d;
+            _controller.enabled = prev;
+        }
+
+        public void MoveToY(float y)
+        {
+            bool prev = _controller.enabled;
+            _controller.enabled = false;
+            transform.position = transform.position.SetY(y);
+            _controller.enabled = prev;
         }
     }
 }

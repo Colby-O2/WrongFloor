@@ -23,5 +23,5 @@ MonoBehaviour:
   ElevatorFallInitialSpeed: 0.6
   ElevatorFallElevatorOpenTime: 2.7
   ElevatorFallSpeedUpTime: 3.5
-  ElevatorFallMaxSpeed: 10
+  ElevatorFallMaxSpeed: 14
   ElevatorFallTime: 14
